@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="768" prefWidth="1024" style="-fx-background-color: #F1F5F9;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="siptek.kantinemama.controller.pelanggan.HalamanAwalUtamaController">
+    <children>
+        <HBox AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <children>
+                <VBox alignment="CENTER_LEFT" spacing="14" style="-fx-padding: 0 0 0 76;" HBox.hgrow="ALWAYS">
+                    <children>
+                        <StackPane maxHeight="56" maxWidth="56" style="-fx-min-width: 56; -fx-min-height: 56; -fx-max-width: 56; -fx-max-height: 56; -fx-background-color: #0F2044; -fx-background-radius: 10;">
+                            <children>
+                                <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 20;" text="🍴" />
+                            </children>
+                        </StackPane>
+                        <Label prefWidth="470" style="-fx-text-fill: #0F2044; -fx-font-size: 32; -fx-font-weight: bold;" text="Selamat Datang di Kantin E Mama" wrapText="true" />
+                        <Label style="-fx-text-fill: #374151; -fx-font-size: 16;" text="Portal Pemesanan &amp; Informasi Kantin" />
+                        <Region prefHeight="14" />
+                        <Button fx:id="btnPesan" onAction="#onPesanClick" prefHeight="48" prefWidth="390" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 14; -fx-font-weight: bold; -fx-background-radius: 8; -fx-border-color: transparent; -fx-cursor: hand;" text="Pesan" />
+                        <Button fx:id="btnDenah" onAction="#onDenahClick" prefHeight="48" prefWidth="390" style="-fx-background-color: #FFFFFF; -fx-text-fill: #1565C0; -fx-font-size: 14; -fx-font-weight: bold; -fx-border-color: #1565C0; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;" text="Lihat Denah Kantin" />
+                    </children>
+                </VBox>
+                <Region maxWidth="1" minWidth="1" prefWidth="1" style="-fx-background-color: #D0D5DD;" />
+                <VBox alignment="CENTER" maxWidth="380" minWidth="380" prefWidth="380">
+                    <children>
+                        <VBox alignment="CENTER" prefWidth="340" spacing="4" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 32 28 32 28;">
+                            <children>
+                                <Label style="-fx-text-fill: #0F2044; -fx-font-size: 20; -fx-font-weight: bold;" text="Admin Portal" />
+                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 13;" text="Akses aman untuk staf dan manajemen." />
+                                <Region prefHeight="20" />
+                                <Label style="-fx-text-fill: #374151; -fx-font-size: 11; -fx-font-weight: bold;" text="USERNAME" />
+                                <TextField fx:id="txtUsername" prefHeight="42" promptText="Enter username" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 14; -fx-prompt-text-fill: #9CA3AF;" />
+                                <Region prefHeight="12" />
+                                <Label style="-fx-text-fill: #374151; -fx-font-size: 11; -fx-font-weight: bold;" text="PASSWORD" />
+                                <PasswordField fx:id="txtPassword" prefHeight="42" promptText="Enter password" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 14; -fx-prompt-text-fill: #9CA3AF;" />
+                                <Region prefHeight="12" />
+                                <Label style="-fx-text-fill: #374151; -fx-font-size: 11; -fx-font-weight: bold;" text="ROLE" />
+                                <ComboBox fx:id="cmbRole" prefHeight="42" prefWidth="284" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 14;" value="Pegawai Kantin">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="Pegawai Kantin" />
+                                            <String fx:value="Admin" />
+                                        </FXCollections>
+                                    </items>
+                                </ComboBox>
+                                <Region prefHeight="20" />
+                                <Button fx:id="btnLogin" maxWidth="1.7976931348623157E308" onAction="#onLoginClick" prefHeight="48" prefWidth="284" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 14; -fx-font-weight: bold; -fx-background-radius: 8; -fx-border-color: transparent; -fx-cursor: hand;" text="Masuk  →" />
+                                <Region prefHeight="14" />
+                                <Hyperlink fx:id="linkBantuan" onAction="#onBantuanClick" style="-fx-text-fill: #1565C0; -fx-font-size: 12; -fx-border-color: transparent;" text="Butuh bantuan akses?" />
+                            </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                        </VBox>
+                    </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

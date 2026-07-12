@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="466" prefWidth="524" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="siptek.kantinemama.controller.pegawai.HapusMenuController">
+    <children>
+        <VBox alignment="CENTER" spacing="14" style="-fx-padding: 36;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <children>
+                <StackPane maxHeight="64" maxWidth="64" style="-fx-min-width: 64; -fx-min-height: 64; -fx-max-width: 64; -fx-max-height: 64; -fx-background-color: #FFEBEE; -fx-background-radius: 16;">
+                    <children>
+                        <Label style="-fx-text-fill: #EF4444; -fx-font-size: 26;" text="⚠" />
+                    </children>
+                </StackPane>
+                <Label style="-fx-text-fill: #0F2044; -fx-font-size: 20; -fx-font-weight: bold;" text="Hapus Menu?" />
+                <Label fx:id="lblKonfirmasiHapus" style="-fx-text-fill: #374151; -fx-font-size: 14;" text="Apakah Anda yakin ingin menghapus &quot;Es Teh Manis&quot; dari katalog?" textAlignment="CENTER" wrapText="true" />
+                <Label maxWidth="1.7976931348623157E308" style="-fx-background-color: #F3F4F6; -fx-text-fill: #6B7280; -fx-font-size: 12; -fx-padding: 10; -fx-background-radius: 6;" text="Data yang dihapus tidak dapat dikembalikan." textAlignment="CENTER" wrapText="true" />
+                <HBox alignment="CENTER" spacing="12">
+                    <children>
+                        <Button fx:id="btnBatalHapus" onAction="#onBatalHapus" prefHeight="44" prefWidth="160" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-font-size: 13; -fx-font-weight: bold; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;" text="BATAL" />
+                        <Button fx:id="btnYaHapusData" onAction="#onYaHapusData" prefHeight="44" prefWidth="160" style="-fx-background-color: #EF4444; -fx-text-fill: #FFFFFF; -fx-font-size: 13; -fx-font-weight: bold; -fx-background-radius: 8; -fx-border-color: transparent; -fx-cursor: hand;" text="HAPUS MENU" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

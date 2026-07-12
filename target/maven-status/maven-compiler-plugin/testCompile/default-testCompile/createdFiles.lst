@@ -1,0 +1,14 @@
+siptek/kantinemama/model/CartItemTest.class
+siptek/kantinemama/model/PesananTest.class
+siptek/kantinemama/model/TransaksiHarianTest.class
+siptek/kantinemama/performance/PerformanceTest.class
+siptek/kantinemama/TestFXML.class
+siptek/kantinemama/integration/FxmlLoadingIntegrationTest.class
+siptek/kantinemama/model/MejaTest.class
+siptek/kantinemama/api/ModelApiTest.class
+siptek/kantinemama/e2e/StokManagementE2ETest.class
+siptek/kantinemama/integration/AppStateIntegrationTest.class
+siptek/kantinemama/model/StokItemTest.class
+siptek/kantinemama/model/MenuItemTest.class
+siptek/kantinemama/e2e/OrderFlowE2ETest.class
+siptek/kantinemama/security/SecurityTest.class
