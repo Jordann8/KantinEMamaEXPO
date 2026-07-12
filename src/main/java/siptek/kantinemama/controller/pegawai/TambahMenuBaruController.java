@@ -1,5 +1,7 @@
 package siptek.kantinemama.controller.pegawai;
 
+import java.io.File;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -16,15 +18,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
-
-/**
- * Controller stub untuk popup Tambah Menu Baru (TambahMenuBaru.fxml).
- * Field dan handler sudah lengkap sesuai fx:id di FXML, tapi logic
- * penyimpanan ke AppState/MenuItem masih perlu diisi oleh Antigravity
- * (lihat komentar TODO). Ini dibuat supaya FXML bisa langsung di-load
- * tanpa "LoadException: No controller specified".
- */
 public class TambahMenuBaruController {
 
     @FXML private Button btnTutupTambah;
@@ -43,7 +36,6 @@ public class TambahMenuBaruController {
 
     @FXML
     public void initialize() {
-        setupToggleSwitch(toggleStatusTambah);
     }
 
     @FXML
@@ -115,7 +107,6 @@ public class TambahMenuBaruController {
         }
         String newId = String.format("M%03d", maxId + 1);
 
-        // Process image path
         String gambarPath = "images/placeholder.jpg";
         if (fotoTerpilih != null) {
             String slug = slugify(nama);
@@ -171,30 +162,5 @@ public class TambahMenuBaruController {
     private void tutupDialog(ActionEvent event) {
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         stage.close();
-    }
-
-    private void setupToggleSwitch(ToggleButton toggle) {
-        javafx.scene.shape.Circle circle = new javafx.scene.shape.Circle(8);
-        circle.setFill(javafx.scene.paint.Color.WHITE);
-        toggle.setGraphic(circle);
-        toggle.setContentDisplay(javafx.scene.control.ContentDisplay.GRAPHIC_ONLY);
-
-        toggle.selectedProperty().addListener((obs, oldVal, newVal) -> {
-            updateToggleStyle(toggle, newVal);
-        });
-
-        updateToggleStyle(toggle, toggle.isSelected());
-    }
-
-    private void updateToggleStyle(ToggleButton toggle, boolean isSelected) {
-        if (isSelected) {
-            toggle.setStyle("-fx-background-color: #1565C0; -fx-background-radius: 13; -fx-border-color: transparent; -fx-cursor: hand;");
-            toggle.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
-            toggle.setPadding(new javafx.geometry.Insets(0, 4, 0, 0));
-        } else {
-            toggle.setStyle("-fx-background-color: #D1D5DB; -fx-background-radius: 13; -fx-border-color: transparent; -fx-cursor: hand;");
-            toggle.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
-            toggle.setPadding(new javafx.geometry.Insets(0, 0, 0, 4));
-        }
     }
 }

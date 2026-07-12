@@ -1,111 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefWidth="1280" prefHeight="900" style="-fx-background-color: #F9FAFB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="siptek.kantinemama.controller.pegawai.AntrianPesananController">
+<AnchorPane prefHeight="900" prefWidth="1280" style="-fx-background-color: #F9FAFB;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="siptek.kantinemama.controller.pegawai.AntrianPesananController">
     <children>
-        <VBox AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <VBox AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
             <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="70" minHeight="70" maxHeight="70" style="-fx-background-color: #F9FAFB; -fx-padding: 0 32 0 32;">
+                <HBox alignment="CENTER_LEFT" maxHeight="70" minHeight="70" prefHeight="70" style="-fx-background-color: #F9FAFB; -fx-padding: 0 32 0 32;">
                     <children>
-                        <Label text="Kantin E Mama" style="-fx-text-fill: #0F2044; -fx-font-size: 20; -fx-font-weight: bold;" />
+                        <Label style="-fx-text-fill: #0F2044; -fx-font-size: 20; -fx-font-weight: bold;" text="Kantin E Mama" />
                         <Region HBox.hgrow="ALWAYS" />
                         <HBox alignment="CENTER" spacing="32">
                             <children>
-                                <Button fx:id="navAntrian" text="Antrian Pesanan" onAction="#onNavAntrian" style="-fx-background-color: transparent; -fx-text-fill: #1565C0; -fx-font-size: 16; -fx-font-weight: bold; -fx-border-color: transparent transparent #1565C0 transparent; -fx-border-width: 0 0 2 0; -fx-cursor: hand;" />
-                                <Button fx:id="navKelolaMenu" text="Kelola Menu" onAction="#onNavKelolaMenu" style="-fx-background-color: transparent; -fx-text-fill: #374151; -fx-font-size: 16; -fx-border-color: transparent; -fx-cursor: hand;" />
+                                <Button fx:id="navAntrian" onAction="#onNavAntrian" style="-fx-background-color: transparent; -fx-text-fill: #1565C0; -fx-font-size: 16; -fx-font-weight: bold; -fx-border-color: transparent transparent #1565C0 transparent; -fx-border-width: 0 0 2 0; -fx-cursor: hand;" text="Antrian Pesanan" />
+                                <Button fx:id="navKelolaMenu" onAction="#onNavKelolaMenu" style="-fx-background-color: transparent; -fx-text-fill: #374151; -fx-font-size: 16; -fx-border-color: transparent; -fx-cursor: hand;" text="Kelola Menu" />
                             </children>
                         </HBox>
                         <Region HBox.hgrow="ALWAYS" />
-                        <Button fx:id="navKeluar" text="⏻  KELUAR" onAction="#onNavKeluar" prefHeight="40" style="-fx-background-color: #EF4444; -fx-text-fill: #FFFFFF; -fx-font-size: 13; -fx-font-weight: bold; -fx-background-radius: 8; -fx-border-color: transparent; -fx-cursor: hand;" />
+                        <Button fx:id="navKeluar" onAction="#onNavKeluar" prefHeight="40" style="-fx-background-color: #EF4444; -fx-text-fill: #FFFFFF; -fx-font-size: 13; -fx-font-weight: bold; -fx-background-radius: 8; -fx-border-color: transparent; -fx-cursor: hand;" text="⏻  KELUAR" />
                     </children>
                 </HBox>
-                <Region prefHeight="1" minHeight="1" maxHeight="1" style="-fx-background-color: #E5E7EB;" />
-                <HBox spacing="24" VBox.vgrow="ALWAYS" style="-fx-padding: 24 32 24 32;">
+                <Region maxHeight="1" minHeight="1" prefHeight="1" style="-fx-background-color: #E5E7EB;" />
+                <HBox spacing="24" style="-fx-padding: 24 32 24 32;" VBox.vgrow="ALWAYS">
                     <children>
-                        <VBox fx:id="colPesananBaru" spacing="14" prefWidth="356">
+                        <VBox fx:id="colPesananBaru" prefWidth="356" spacing="14">
                             <children>
                                 <HBox alignment="CENTER_LEFT" spacing="8">
                                     <children>
-                                        <Label text="📥  Pesanan Baru" style="-fx-text-fill: #111827; -fx-font-size: 17; -fx-font-weight: bold;" />
-                                        <Label fx:id="badgePesananBaru" text="2" style="-fx-background-color: #E5E7EB; -fx-text-fill: #374151; -fx-font-size: 12; -fx-font-weight: bold; -fx-padding: 2 9 2 9; -fx-background-radius: 10;" />
+                                        <Label style="-fx-text-fill: #111827; -fx-font-size: 17; -fx-font-weight: bold;" text="Pesanan Baru" />
+                                        <Label fx:id="badgePesananBaru" style="-fx-background-color: #E5E7EB; -fx-text-fill: #374151; -fx-font-size: 12; -fx-font-weight: bold; -fx-padding: 2 9 2 9; -fx-background-radius: 10;" text="2" />
                                     </children>
                                 </HBox>
                                 <VBox fx:id="cardOrderBaru1" spacing="10" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 16;">
                                     <children>
                                         <HBox alignment="CENTER_LEFT">
                                             <children>
-                                                <Label fx:id="lblOrderId1" text="#ORD-88219" style="-fx-text-fill: #111827; -fx-font-size: 14; -fx-font-weight: bold;" />
+                                                <Label fx:id="lblOrderId1" style="-fx-text-fill: #111827; -fx-font-size: 14; -fx-font-weight: bold;" text="#ORD-88219" />
                                                 <Region prefWidth="8" />
-                                                <Label text="LUNAS" style="-fx-background-color: #DCFCE7; -fx-text-fill: #16A34A; -fx-font-size: 10; -fx-font-weight: bold; -fx-padding: 2 7 2 7; -fx-background-radius: 8;" />
+                                                <Label style="-fx-background-color: #DCFCE7; -fx-text-fill: #16A34A; -fx-font-size: 10; -fx-font-weight: bold; -fx-padding: 2 7 2 7; -fx-background-radius: 8;" text="LUNAS" />
                                                 <Region HBox.hgrow="ALWAYS" />
-                                                <Label fx:id="lblMeja1" text="🏠 MEJA M12" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 10; -fx-font-weight: bold; -fx-padding: 4 8 4 8; -fx-background-radius: 6;" />
+                                                <Label fx:id="lblMeja1" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 10; -fx-font-weight: bold; -fx-padding: 4 8 4 8; -fx-background-radius: 6;" text="MEJA M12" />
                                             </children>
                                         </HBox>
-                                        <Label text="11:42 AM • Dine-In" style="-fx-text-fill: #9CA3AF; -fx-font-size: 12;" />
+                                        <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 12;" text="11:42 AM • Dine-In" />
                                         <VBox spacing="6" style="-fx-background-color: #F9FAFB; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 6; -fx-padding: 12;">
                                             <children>
-                                                <Label text="2x  Sate Ayam Madura" style="-fx-text-fill: #111827; -fx-font-size: 13; -fx-font-weight: bold;" />
-                                                <Label text="2x  Es Teh Manis" style="-fx-text-fill: #111827; -fx-font-size: 13; -fx-font-weight: bold;" />
+                                                <Label style="-fx-text-fill: #111827; -fx-font-size: 13; -fx-font-weight: bold;" text="2x  Sate Ayam Madura" />
+                                                <Label style="-fx-text-fill: #111827; -fx-font-size: 13; -fx-font-weight: bold;" text="2x  Es Teh Manis" />
                                             </children>
                                         </VBox>
-                                        <Button fx:id="btnMulaiMemasak1" text="Mulai Memasak" onAction="#onMulaiMemasak1" maxWidth="1.7976931348623157E308" prefHeight="38" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 13; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" />
+                                        <Button fx:id="btnMulaiMemasak1" maxWidth="1.7976931348623157E308" onAction="#onMulaiMemasak1" prefHeight="38" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 13; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" text="Mulai Memasak" />
                                     </children>
                                 </VBox>
                                 <VBox fx:id="cardOrderBaru2" spacing="10" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 16;">
                                     <children>
                                         <HBox alignment="CENTER_LEFT">
                                             <children>
-                                                <Label fx:id="lblOrderId2" text="#ORD-9922" style="-fx-text-fill: #111827; -fx-font-size: 14; -fx-font-weight: bold;" />
+                                                <Label fx:id="lblOrderId2" style="-fx-text-fill: #111827; -fx-font-size: 14; -fx-font-weight: bold;" text="#ORD-9922" />
                                                 <Region prefWidth="8" />
-                                                <Label text="LUNAS" style="-fx-background-color: #DCFCE7; -fx-text-fill: #16A34A; -fx-font-size: 10; -fx-font-weight: bold; -fx-padding: 2 7 2 7; -fx-background-radius: 8;" />
+                                                <Label style="-fx-background-color: #DCFCE7; -fx-text-fill: #16A34A; -fx-font-size: 10; -fx-font-weight: bold; -fx-padding: 2 7 2 7; -fx-background-radius: 8;" text="LUNAS" />
                                                 <Region HBox.hgrow="ALWAYS" />
-                                                <Label fx:id="lblMeja2" text="🏠 MEJA M04" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 10; -fx-font-weight: bold; -fx-padding: 4 8 4 8; -fx-background-radius: 6;" />
+                                                <Label fx:id="lblMeja2" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 10; -fx-font-weight: bold; -fx-padding: 4 8 4 8; -fx-background-radius: 6;" text="MEJA M04" />
                                             </children>
                                         </HBox>
-                                        <Label text="11:40 AM • Dine-in" style="-fx-text-fill: #9CA3AF; -fx-font-size: 12;" />
+                                        <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 12;" text="11:40 AM • Dine-in" />
                                         <VBox spacing="6" style="-fx-background-color: #F9FAFB; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 6; -fx-padding: 12;">
                                             <children>
-                                                <Label text="3x  Soto Ayam Kampung" style="-fx-text-fill: #111827; -fx-font-size: 13; -fx-font-weight: bold;" />
+                                                <Label style="-fx-text-fill: #111827; -fx-font-size: 13; -fx-font-weight: bold;" text="3x  Soto Ayam Kampung" />
                                             </children>
                                         </VBox>
-                                        <Button fx:id="btnMulaiMemasak2" text="Mulai Memasak" onAction="#onMulaiMemasak2" maxWidth="1.7976931348623157E308" prefHeight="38" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 13; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" />
+                                        <Button fx:id="btnMulaiMemasak2" maxWidth="1.7976931348623157E308" onAction="#onMulaiMemasak2" prefHeight="38" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 13; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" text="Mulai Memasak" />
                                     </children>
                                 </VBox>
                             </children>
                         </VBox>
-                        <VBox fx:id="colSedangDimasak" spacing="14" prefWidth="356">
+                        <VBox fx:id="colSedangDimasak" prefWidth="356" spacing="14">
                             <children>
                                 <HBox alignment="CENTER_LEFT" spacing="8">
                                     <children>
-                                        <Label text="🍳  Sedang Dimasak" style="-fx-text-fill: #111827; -fx-font-size: 17; -fx-font-weight: bold;" />
-                                        <Label fx:id="badgeSedangDimasak" text="1" style="-fx-background-color: #E5E7EB; -fx-text-fill: #374151; -fx-font-size: 12; -fx-font-weight: bold; -fx-padding: 2 9 2 9; -fx-background-radius: 10;" />
+                                        <Label style="-fx-text-fill: #111827; -fx-font-size: 17; -fx-font-weight: bold;" text="Sedang Dimasak" />
+                                        <Label fx:id="badgeSedangDimasak" style="-fx-background-color: #E5E7EB; -fx-text-fill: #374151; -fx-font-size: 12; -fx-font-weight: bold; -fx-padding: 2 9 2 9; -fx-background-radius: 10;" text="1" />
                                     </children>
                                 </HBox>
                                 <VBox fx:id="cardOrderMasak1" spacing="10" style="-fx-background-color: #FFFFFF; -fx-border-color: #1565C0; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 16;">
                                     <children>
                                         <HBox alignment="CENTER_LEFT">
                                             <children>
-                                                <Label fx:id="lblOrderId3" text="#ORD-9918" style="-fx-text-fill: #111827; -fx-font-size: 14; -fx-font-weight: bold;" />
+                                                <Label fx:id="lblOrderId3" style="-fx-text-fill: #111827; -fx-font-size: 14; -fx-font-weight: bold;" text="#ORD-9918" />
                                                 <Region prefWidth="8" />
-                                                <Label fx:id="lblWaktuMasak" text="⏱ 12m" style="-fx-background-color: #FEF3C7; -fx-text-fill: #D97706; -fx-font-size: 10; -fx-font-weight: bold; -fx-padding: 2 7 2 7; -fx-background-radius: 8;" />
+                                                <Label fx:id="lblWaktuMasak" style="-fx-background-color: #FEF3C7; -fx-text-fill: #D97706; -fx-font-size: 10; -fx-font-weight: bold; -fx-padding: 2 7 2 7; -fx-background-radius: 8;" text="⏱ 12m" />
                                                 <Region HBox.hgrow="ALWAYS" />
-                                                <Label fx:id="lblMeja3" text="🏠 MEJA M01" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 10; -fx-font-weight: bold; -fx-padding: 4 8 4 8; -fx-background-radius: 6;" />
+                                                <Label fx:id="lblMeja3" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 10; -fx-font-weight: bold; -fx-padding: 4 8 4 8; -fx-background-radius: 6;" text="MEJA M01" />
                                             </children>
                                         </HBox>
-                                        <Label text="11:30 AM • Dine-in" style="-fx-text-fill: #9CA3AF; -fx-font-size: 12;" />
+                                        <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 12;" text="11:30 AM • Dine-in" />
                                         <VBox spacing="6" style="-fx-background-color: #F9FAFB; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 6; -fx-padding: 12;">
                                             <children>
-                                                <Label text="1x  Mie Goreng Jawa" style="-fx-text-fill: #9CA3AF; -fx-font-size: 13;" />
-                                                <Label text="2x  Ayam Bakar Madu" style="-fx-text-fill: #111827; -fx-font-size: 13; -fx-font-weight: bold;" />
+                                                <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 13;" text="1x  Mie Goreng Jawa" />
+                                                <Label style="-fx-text-fill: #111827; -fx-font-size: 13; -fx-font-weight: bold;" text="2x  Ayam Bakar Madu" />
                                             </children>
                                         </VBox>
-                                        <Button fx:id="btnSelesaiAntar" text="🏠  Selesai &amp; Antar" onAction="#onSelesaiAntar" maxWidth="1.7976931348623157E308" prefHeight="38" style="-fx-background-color: #1565C0; -fx-text-fill: #FFFFFF; -fx-font-size: 13; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" />
+                                        <Button fx:id="btnSelesaiAntar" maxWidth="1.7976931348623157E308" onAction="#onSelesaiAntar" prefHeight="38" style="-fx-background-color: #1565C0; -fx-text-fill: #FFFFFF; -fx-font-size: 13; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" text="Selesai &amp; Antar" />
                                     </children>
                                 </VBox>
                             </children>
@@ -114,14 +114,13 @@
                             <children>
                                 <HBox alignment="CENTER_LEFT" spacing="8">
                                     <children>
-                                        <Label text="✅  Siap Diambil" style="-fx-text-fill: #111827; -fx-font-size: 17; -fx-font-weight: bold;" />
-                                        <Label fx:id="badgeSiapDiambil" text="0" style="-fx-background-color: #E5E7EB; -fx-text-fill: #374151; -fx-font-size: 12; -fx-font-weight: bold; -fx-padding: 2 9 2 9; -fx-background-radius: 10;" />
+                                        <Label style="-fx-text-fill: #111827; -fx-font-size: 17; -fx-font-weight: bold;" text="Siap Diambil" />
+                                        <Label fx:id="badgeSiapDiambil" style="-fx-background-color: #E5E7EB; -fx-text-fill: #374151; -fx-font-size: 12; -fx-font-weight: bold; -fx-padding: 2 9 2 9; -fx-background-radius: 10;" text="0" />
                                     </children>
                                 </HBox>
-                                <VBox fx:id="emptyStateSiapDiambil" alignment="CENTER" spacing="10" VBox.vgrow="ALWAYS" style="-fx-border-color: #D1D5DB; -fx-border-width: 1.5; -fx-padding: 40;">
+                                <VBox fx:id="emptyStateSiapDiambil" alignment="CENTER" spacing="10" style="-fx-border-color: #D1D5DB; -fx-border-width: 1.5; -fx-padding: 40;" VBox.vgrow="ALWAYS">
                                     <children>
-                                        <Label text="📥" style="-fx-text-fill: #D1D5DB; -fx-font-size: 28;" />
-                                        <Label text="Tidak ada pesanan menunggu" wrapText="true" textAlignment="CENTER" style="-fx-text-fill: #9CA3AF; -fx-font-size: 13;" />
+                                        <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 13;" text="Tidak ada pesanan menunggu" textAlignment="CENTER" wrapText="true" />
                                     </children>
                                 </VBox>
                             </children>

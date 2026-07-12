@@ -1,5 +1,8 @@
 package siptek.kantinemama.controller.pelanggan;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,9 +13,6 @@ import javafx.scene.layout.VBox;
 import siptek.kantinemama.model.AppState;
 import siptek.kantinemama.model.CartItem;
 import siptek.kantinemama.util.SceneNavigator;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class PembayaranBerhasilController {
 
@@ -42,7 +42,6 @@ public class PembayaranBerhasilController {
 
         ObservableList<CartItem> cart = appState.getCurrentCart();
 
-        // Row 1
         HBox row1 = (HBox) receiptBox.getChildren().get(5);
         if (cart.size() > 0) {
             row1.setVisible(true);
@@ -57,7 +56,6 @@ public class PembayaranBerhasilController {
             row1.setManaged(false);
         }
 
-        // Row 2
         HBox row2 = (HBox) receiptBox.getChildren().get(6);
         if (cart.size() > 1) {
             row2.setVisible(true);
@@ -66,7 +64,8 @@ public class PembayaranBerhasilController {
             Label nameLabel = (Label) row2.getChildren().get(0);
             Label priceLabel = (Label) row2.getChildren().get(2);
             nameLabel.setText(item.getQty() + "x " + item.getMenuItem().getNama());
-            priceLabel.setText(siptek.kantinemama.util.CurrencyUtil.formatRaw(item.getSubtotal()));
+            double subtotalitem = item.getSubtotal(); 
+            priceLabel.setText(siptek.kantinemama.util.CurrencyUtil.formatRupiah(subtotalitem));
         } else {
             row2.setVisible(false);
             row2.setManaged(false);
@@ -92,7 +91,8 @@ public class PembayaranBerhasilController {
         // Total
         HBox totalHBox = (HBox) receiptBox.getChildren().get(10);
         Label totalVal = (Label) totalHBox.getChildren().get(2);
-        totalVal.setText(siptek.kantinemama.util.CurrencyUtil.formatRupiah(total));
+        double totalitem = total;
+        totalVal.setText(siptek.kantinemama.util.CurrencyUtil.formatRupiah(totalitem));
 
         // Method label
         Label methodLabel = (Label) receiptBox.getChildren().get(13);
@@ -101,11 +101,6 @@ public class PembayaranBerhasilController {
 
     @FXML
     void onPilihMeja(ActionEvent event) {
-        // REVISI V2: tombol ini sekarang "Lihat Pesanan Saya" (meja sudah
-        // dipilih di awal alur, bukan di titik ini lagi). Pesanan sudah
-        // dibuat & disimpan di PembayaranQRISController.onCekStatus;
-        // di sini tinggal bersihkan state keranjang/order aktif sebelum
-        // pindah ke Pesanan Saya.
         appState.clearCart();
         appState.setCurrentOrderId(null);
         appState.setSelectedMeja(null);

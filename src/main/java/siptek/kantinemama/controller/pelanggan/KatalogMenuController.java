@@ -6,17 +6,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import siptek.kantinemama.model.AppState;
 import siptek.kantinemama.model.CartItem;
 import siptek.kantinemama.model.MenuItem;
 import siptek.kantinemama.util.SceneNavigator;
-import javafx.scene.shape.Rectangle;
 
 public class KatalogMenuController {
 
@@ -51,13 +51,11 @@ public class KatalogMenuController {
         for (MenuItem item : appState.getMenuItems()) {
             if (!item.isAktif()) continue;
 
-            // 1. VBox card
             VBox card = new VBox();
             card.setPrefWidth(220);
             card.setSpacing(8);
             card.setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 10;");
 
-            // 2. StackPane for image
             StackPane sp = new StackPane();
             sp.setPrefHeight(130);
             sp.setStyle("-fx-background-color: #E5E7EB; -fx-background-radius: 8;");
@@ -71,18 +69,15 @@ public class KatalogMenuController {
 
             card.getChildren().add(sp);
 
-            // 3. Label name
             Label nameLabel = new Label(item.getNama());
             nameLabel.setWrapText(true);
             nameLabel.setStyle("-fx-text-fill: #111827; -fx-font-size: 15; -fx-font-weight: bold;");
             card.getChildren().add(nameLabel);
 
-            // 4. Label price (Using CurrencyUtil, but we'll import/implement it soon, for now let's write formatRupiah)
             Label priceLabel = new Label(siptek.kantinemama.util.CurrencyUtil.formatRupiah(item.getHarga()));
             priceLabel.setStyle("-fx-text-fill: #0F2044; -fx-font-size: 16; -fx-font-weight: bold;");
             card.getChildren().add(priceLabel);
 
-            // 5. Button add to cart
             Button btnAdd = new Button("🛒  Tambah ke Keranjang");
             btnAdd.setMaxWidth(Double.MAX_VALUE);
             btnAdd.setPrefHeight(38);
@@ -128,7 +123,6 @@ public class KatalogMenuController {
             return;
         }
 
-        // Check if already in cart
         CartItem cartItem = null;
         for (CartItem item : appState.getCurrentCart()) {
             if (item.getMenuItem().getId().equals(itemId)) {
@@ -144,7 +138,6 @@ public class KatalogMenuController {
             }
             cartItem.setQty(cartItem.getQty() + 1);
         } else {
-            // FXML cart only shows 2 rows, warn user if they add more than 2 distinct items
             if (appState.getCurrentCart().size() >= 2) {
                 showWarning("Keranjang Penuh", "Untuk simulasi ini, Anda hanya dapat memesan maksimal 2 jenis menu berbeda!");
                 return;
@@ -164,7 +157,6 @@ public class KatalogMenuController {
         updateCartRow(btnMinus1, imgCartItem1, item1);
         updateCartRow(btnMinus2, imgCartItem2, item2);
 
-        // Calculate Subtotal and Total
         double subtotal = 0;
         int totalQty = 0;
         for (CartItem item : cart) {
@@ -175,10 +167,8 @@ public class KatalogMenuController {
         double tax = subtotal * 0.10;
         double total = subtotal + tax;
 
-        // Update Total Label
         lblTotal.setText(siptek.kantinemama.util.CurrencyUtil.formatRupiah(total));
 
-        // Dynamically find and update Subtotal and Tax value labels in the parent pane
         try {
             VBox summaryBox = (VBox) lblTotal.getParent().getParent();
             HBox subtotalHBox = (HBox) summaryBox.getChildren().get(0);
@@ -189,16 +179,13 @@ public class KatalogMenuController {
             Label taxValue = (Label) taxHBox.getChildren().get(2);
             taxValue.setText(siptek.kantinemama.util.CurrencyUtil.formatRupiah(tax));
         } catch (Exception e) {
-            // Ignore if layout is slightly different
         }
 
-        // Update badge text next to navCart if possible
         try {
             HBox headerBox = (HBox) navCart.getParent();
             Label badgeLabel = (Label) headerBox.getChildren().get(headerBox.getChildren().indexOf(navCart) + 1);
             badgeLabel.setText(totalQty + " item");
         } catch (Exception e) {
-            // Ignore
         }
     }
 
@@ -213,12 +200,10 @@ public class KatalogMenuController {
             row.setVisible(true);
             row.setManaged(true);
 
-            // Load menu image dynamically for the cart item
             if (imgView != null) {
                 String imageName = slugify(item.getMenuItem().getNama());
                 setImage(imgView, "images/menu/" + imageName + ".jpg");
 
-                // Apply a rounded rectangle clip to match design aesthetics
                 Rectangle clip = new Rectangle(46, 46);
                 clip.setArcWidth(12);
                 clip.setArcHeight(12);
@@ -296,7 +281,6 @@ public class KatalogMenuController {
             return;
         }
 
-        // Calculate and save checkout total
         double subtotal = 0;
         for (CartItem item : appState.getCurrentCart()) {
             subtotal += item.getSubtotal();
@@ -308,7 +292,6 @@ public class KatalogMenuController {
     }
 
     @FXML void onNavMenu(ActionEvent event) {
-        // Already on menu catalog
     }
 
     @FXML
@@ -330,7 +313,6 @@ public class KatalogMenuController {
 
     @FXML
     void onNavCart(ActionEvent event) {
-        // Scroll / Focus on cart
     }
 
     @FXML

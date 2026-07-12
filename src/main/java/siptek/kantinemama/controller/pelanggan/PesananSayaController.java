@@ -1,32 +1,26 @@
 package siptek.kantinemama.controller.pelanggan;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import siptek.kantinemama.model.AppState;
 import siptek.kantinemama.model.Pesanan;
 import siptek.kantinemama.util.SceneNavigator;
 
-import java.io.FileWriter;
-import java.io.IOException;
-
-/**
- * REVISI V2:
- * - Kolom "STATUS" tunggal dipecah jadi "STATUS PESANAN" (colStatusPesanan)
- *   dan "STATUS PEMBAYARAN" (colStatusPembayaran).
- * - Tombol pagination (btnPrevPage/btnNextPage/btnPage1/2/3) dihapus karena
- *   sudah tidak ada lagi di PesananSaya.fxml (diganti scroll bawaan TableView).
- * - Tracker 3-tahap sisi pelanggan disederhanakan: Diterima/Lunas -> Sedang
- *   Dimasak -> Selesai (tahap "Siap Diantar ke Meja" dihapus karena meja
- *   sekarang dipilih SEBELUM pembayaran, bukan tahap terpisah yang ditunggu
- *   pelanggan). Lihat REVISI-V2-KANTINEMAMA.md Bagian 3 & 4.
- */
 public class PesananSayaController {
 
     @FXML private Button btnExportPdf;
@@ -64,7 +58,6 @@ public class PesananSayaController {
             }
         });
 
-        // Kolom Status Pesanan: petakan statusDapur (4 nilai internal) ke 2 nilai tampilan
         colStatusPesanan.setCellValueFactory(new PropertyValueFactory<>("statusDapur"));
         colStatusPesanan.setCellFactory(column -> new TableCell<>() {
             @Override
@@ -118,9 +111,6 @@ public class PesananSayaController {
 
             Pesanan activeOrder = null;
             ObservableList<Pesanan> orders = appState.getOrders();
-            // Pesanan terbaru sekarang ada di AWAL list (lihat PembayaranQRISController/
-            // PembayaranTunaiController yang insert pakai add(0, pesanan)), jadi cari maju
-            // dari index 0, bukan mundur dari akhir seperti sebelumnya.
             for (int i = 0; i < orders.size(); i++) {
                 Pesanan p = orders.get(i);
                 if (!"Selesai".equalsIgnoreCase(p.getStatusDapur())) {
@@ -158,7 +148,6 @@ public class PesananSayaController {
             if ("-".equals(mejaLabelText)) mejaLabelText = "Kasir (Tunai)";
             tableLabel.setText(mejaLabelText);
 
-            // Progress bar 3-tahap: Diterima/Lunas -> Sedang Dimasak -> Selesai
             HBox progressRow = (HBox) activeOrderBox.getChildren().get(1);
             StackPane step1 = (StackPane) progressRow.getChildren().get(0);
             Region line1 = (Region) progressRow.getChildren().get(1);
@@ -273,7 +262,7 @@ public class PesananSayaController {
 
     @FXML
     void onNavCart(ActionEvent event) {
-        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/KatalogMenu.fxml");
+        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/HalamanKatalogMenu.fxml");
     }
 
     @FXML
@@ -287,11 +276,10 @@ public class PesananSayaController {
 
     @FXML
     void onNavMenu(ActionEvent event) {
-        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/KatalogMenu.fxml");
+        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/HalamanKatalogMenu.fxml");
     }
 
     @FXML
     void onNavOrders(ActionEvent event) {
-        // sudah di halaman ini
     }
 }

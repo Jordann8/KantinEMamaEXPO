@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class PersistenceManager {
-    private static final String FILE_PATH = System.getProperty("user.dir") + "/data.xml";
+    private static final String FILE_PATH = System.getProperty("user.home") + "/.kantinemama/data.xml";
     private static final XStream xstream = new XStream();
 
     static {

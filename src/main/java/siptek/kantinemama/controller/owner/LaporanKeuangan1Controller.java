@@ -1,40 +1,24 @@
 package siptek.kantinemama.controller.owner;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import siptek.kantinemama.model.AppState;
 import siptek.kantinemama.model.CartItem;
 import siptek.kantinemama.model.Pesanan;
 import siptek.kantinemama.util.SceneNavigator;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.*;
-
-/**
- * REVISI V2: Ini SATU-SATUNYA halaman sisi Owner (Dasbor Pemilik, Manajemen
- * Katalog Menu versi Owner, dan Pengaturan Sistem sudah dihapus dari scope
- * -- lihat REVISI-V2-KANTINEMAMA.md Bagian 5). Tidak ada sidebar/nav lain,
- * cuma tombol Ekspor PDF dan Keluar.
- *
- * BUG DIPERBAIKI: sebelumnya kartu ringkasan & tabel Riwayat berisi angka
- * HARDCODE yang sama persis setiap kali dibuka, tidak peduli transaksi apa
- * yang sudah masuk (ditemukan saat code review sebelumnya). Sekarang
- * semuanya dihitung dari appState.getOrders() yang sesungguhnya.
- *
- * Catatan pendapatan bersih: karena aplikasi ini tidak (belum) punya konsep
- * "biaya platform" terpisah, PENDAPATAN BERSIH dihitung sebagai 90% dari
- * PENDAPATAN KOTOR (rasio 10% ini meniru potongan biaya layanan/settlement,
- * sesuai rasio yang konsisten terlihat di rancangan desain awal). Kalau
- * nanti ada aturan bisnis yang lebih spesifik soal potongan ini, angka 0.9
- * di bawah tinggal disesuaikan.
- */
 public class LaporanKeuangan1Controller {
 
     @FXML private Label lblPeriode;
@@ -109,7 +93,6 @@ public class LaporanKeuangan1Controller {
 
         riwayatRows.getChildren().clear();
         List<RingkasanHarian> rows = new ArrayList<>(grouped.values());
-        // Urut terbaru dulu (asumsi format tanggal dd/MM/yyyy dari Pesanan.getWaktu())
         rows.sort((a, b) -> b.tanggal.compareTo(a.tanggal));
 
         for (RingkasanHarian r : rows) {
@@ -152,7 +135,6 @@ public class LaporanKeuangan1Controller {
     }
 
     private String extractTanggal(String waktu) {
-        // waktu format "dd/MM/yyyy HH:mm" -> ambil tanggal saja
         if (waktu == null) return "-";
         int spaceIdx = waktu.indexOf(' ');
         return spaceIdx > 0 ? waktu.substring(0, spaceIdx) : waktu;

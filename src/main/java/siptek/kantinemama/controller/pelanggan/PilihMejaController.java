@@ -1,8 +1,10 @@
 package siptek.kantinemama.controller.pelanggan;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,9 +13,6 @@ import javafx.scene.layout.VBox;
 import siptek.kantinemama.model.AppState;
 import siptek.kantinemama.model.Meja;
 import siptek.kantinemama.util.SceneNavigator;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class PilihMejaController {
 
@@ -45,7 +44,6 @@ public class PilihMejaController {
 
     @FXML
     public void initialize() {
-        // Map all meja nodes to their IDs for easy traversal
         mejaNodes.put("mejaMO1", mejaMO1);
         mejaNodes.put("mejaMO2", mejaMO2);
         mejaNodes.put("mejaMO3", mejaMO3);
@@ -64,10 +62,8 @@ public class PilihMejaController {
         mejaNodes.put("mejaMO16", mejaMO16);
         mejaNodes.put("mejaMO17", mejaMO17);
 
-        // Reset any previously selected table state
         appState.setSelectedMeja(null);
 
-        // Render initial statuses
         refreshMejaStyles();
         lblMejaTerpilih.setText("Belum ada meja terpilih");
     }
@@ -75,23 +71,19 @@ public class PilihMejaController {
     private void refreshMejaStyles() {
         for (Meja meja : appState.getTables()) {
             VBox node = mejaNodes.get(meja.getKode());
-            if (node == null) continue;
+            if (node == null || node.getChildren().isEmpty()) continue;
 
-            Label iconLabel = (Label) node.getChildren().get(0);
-            Label textLabel = (Label) node.getChildren().get(1);
+            Label textLabel = (Label) node.getChildren().get(0);
 
             if ("KOSONG".equals(meja.getStatus())) {
                 node.setStyle("-fx-background-color: #E0F9F9; -fx-border-color: #26C6DA; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;");
-                iconLabel.setStyle("-fx-text-fill: #0F2044; -fx-font-size: 16;");
-                textLabel.setStyle("-fx-text-fill: #0F2044; -fx-font-size: 13; -fx-font-weight: bold;");
+                textLabel.setStyle("-fx-text-fill: #0F2044; -fx-font-size: 14; -fx-font-weight: bold;");
             } else if ("TERISI".equals(meja.getStatus())) {
                 node.setStyle("-fx-background-color: #FFEBEE; -fx-border-color: #EF4444; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;");
-                iconLabel.setStyle("-fx-text-fill: #EF4444; -fx-font-size: 16;");
-                textLabel.setStyle("-fx-text-fill: #EF4444; -fx-font-size: 13; -fx-font-weight: bold;");
+                textLabel.setStyle("-fx-text-fill: #EF4444; -fx-font-size: 14; -fx-font-weight: bold;");
             } else if ("TERPILIH".equals(meja.getStatus())) {
                 node.setStyle("-fx-background-color: #BBDEFB; -fx-border-color: #1565C0; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;");
-                iconLabel.setStyle("-fx-text-fill: #1565C0; -fx-font-size: 16;");
-                textLabel.setStyle("-fx-text-fill: #1565C0; -fx-font-size: 13; -fx-font-weight: bold;");
+                textLabel.setStyle("-fx-text-fill: #1565C0; -fx-font-size: 14; -fx-font-weight: bold;");
             }
         }
     }
@@ -116,19 +108,16 @@ public class PilihMejaController {
             return;
         }
 
-        // Reset previous TERPILIH to KOSONG
         for (Meja meja : appState.getTables()) {
             if ("TERPILIH".equals(meja.getStatus())) {
                 meja.setStatus("KOSONG");
             }
         }
 
-        // Set current to TERPILIH
         clickedMeja.setStatus("TERPILIH");
         appState.setSelectedMeja(kodeMeja);
         
-        // Extract display name, e.g. "mejaMO1" -> "Meja 1" or "M01"
-        Label textLabel = (Label) clickedNode.getChildren().get(1);
+        Label textLabel = (Label) clickedNode.getChildren().get(0);
         lblMejaTerpilih.setText(textLabel.getText());
 
         refreshMejaStyles();
@@ -151,9 +140,6 @@ public class PilihMejaController {
             return;
         }
 
-        // Tandai meja TERISI supaya pegawai tahu ke meja mana pesanan diantar.
-        // Catatan: ini BUKAN sistem booking/lock berlapis, murni penanda visual
-        // untuk observasi denah (lihat REVISI-V2-KANTINEMAMA.md Bagian 3).
         for (Meja meja : appState.getTables()) {
             if (meja.getKode().equals(appState.getSelectedMeja())) {
                 meja.setStatus("TERISI");
@@ -161,10 +147,6 @@ public class PilihMejaController {
             }
         }
 
-        // Pesanan BELUM dibuat di sini. Meja cuma disimpan di AppState
-        // (appState.getSelectedMeja()) untuk dipakai nanti saat Pesanan
-        // benar-benar dibuat di titik pembayaran sukses
-        // (PembayaranQRISController.onCekStatus / PembayaranTunaiController.onKembaliKatalog).
         SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/KonfirmasiPesanan.fxml");
     }
 

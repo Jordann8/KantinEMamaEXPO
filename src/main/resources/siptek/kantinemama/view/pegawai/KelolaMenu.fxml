@@ -1,94 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefWidth="1280" prefHeight="900" style="-fx-background-color: #F9FAFB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="siptek.kantinemama.controller.pegawai.KelolaMenuController">
+<AnchorPane prefHeight="900" prefWidth="1280" style="-fx-background-color: #F9FAFB;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="siptek.kantinemama.controller.pegawai.KelolaMenuController">
     <children>
-        <VBox AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <VBox AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
             <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="70" minHeight="70" maxHeight="70" style="-fx-background-color: #F9FAFB; -fx-padding: 0 32 0 32;">
+                <HBox alignment="CENTER_LEFT" maxHeight="70" minHeight="70" prefHeight="70" style="-fx-background-color: #F9FAFB; -fx-padding: 0 32 0 32;">
                     <children>
-                        <Label text="Kantin E Mama" style="-fx-text-fill: #0F2044; -fx-font-size: 20; -fx-font-weight: bold;" />
+                        <Label style="-fx-text-fill: #0F2044; -fx-font-size: 20; -fx-font-weight: bold;" text="Kantin E Mama" />
                         <Region HBox.hgrow="ALWAYS" />
                         <HBox alignment="CENTER" spacing="32">
                             <children>
-                                <Button fx:id="navAntrian" text="Antrian Pesanan" onAction="#onNavAntrian" style="-fx-background-color: transparent; -fx-text-fill: #374151; -fx-font-size: 16; -fx-border-color: transparent; -fx-cursor: hand;" />
-                                <Button fx:id="navKelolaMenu" text="Kelola Menu" onAction="#onNavKelolaMenu" style="-fx-background-color: transparent; -fx-text-fill: #1565C0; -fx-font-size: 16; -fx-font-weight: bold; -fx-border-color: transparent transparent #1565C0 transparent; -fx-border-width: 0 0 2 0; -fx-cursor: hand;" />
+                                <Button fx:id="navAntrian" onAction="#onNavAntrian" style="-fx-background-color: transparent; -fx-text-fill: #374151; -fx-font-size: 16; -fx-border-color: transparent; -fx-cursor: hand;" text="Antrian Pesanan" />
+                                <Button fx:id="navKelolaMenu" onAction="#onNavKelolaMenu" style="-fx-background-color: transparent; -fx-text-fill: #1565C0; -fx-font-size: 16; -fx-font-weight: bold; -fx-border-color: transparent transparent #1565C0 transparent; -fx-border-width: 0 0 2 0; -fx-cursor: hand;" text="Kelola Menu" />
                             </children>
                         </HBox>
                         <Region HBox.hgrow="ALWAYS" />
-                        <Button fx:id="navKeluar" text="⏻  KELUAR" onAction="#onNavKeluar" prefHeight="40" style="-fx-background-color: #EF4444; -fx-text-fill: #FFFFFF; -fx-font-size: 13; -fx-font-weight: bold; -fx-background-radius: 8; -fx-border-color: transparent; -fx-cursor: hand;" />
+                        <Button fx:id="navKeluar" onAction="#onNavKeluar" prefHeight="40" style="-fx-background-color: #EF4444; -fx-text-fill: #FFFFFF; -fx-font-size: 13; -fx-font-weight: bold; -fx-background-radius: 8; -fx-border-color: transparent; -fx-cursor: hand;" text="⏻  KELUAR" />
                     </children>
                 </HBox>
-                <Region prefHeight="1" minHeight="1" maxHeight="1" style="-fx-background-color: #E5E7EB;" />
-                <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: #F9FAFB; -fx-border-color: transparent;">
+                <Region maxHeight="1" minHeight="1" prefHeight="1" style="-fx-background-color: #E5E7EB;" />
+                <ScrollPane fitToWidth="true" style="-fx-background-color: #F9FAFB; -fx-border-color: transparent;" VBox.vgrow="ALWAYS">
                     <content>
                         <VBox spacing="18" style="-fx-padding: 24 32 32 32;">
                             <children>
                                 <HBox spacing="18">
                                     <children>
-                                        <HBox alignment="CENTER_LEFT" spacing="14" prefWidth="290" HBox.hgrow="ALWAYS" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 16;">
+                                        <HBox alignment="CENTER_LEFT" prefWidth="290" spacing="14" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 16;" HBox.hgrow="ALWAYS">
                                             <children>
-                                                <StackPane maxWidth="42" maxHeight="42" style="-fx-min-width: 42; -fx-min-height: 42; -fx-max-width: 42; -fx-max-height: 42; -fx-background-color: #0F2044; -fx-background-radius: 8;">
-                                                    <children>
-                                                        <Label text="📋" style="-fx-text-fill: #FFFFFF; -fx-font-size: 16;" />
-                                                    </children>
-                                                </StackPane>
                                                 <VBox>
                                                     <children>
-                                                        <Label text="Total Katalog Menu" style="-fx-text-fill: #6B7280; -fx-font-size: 12;" />
+                                                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12;" text="Total Katalog Menu" />
                                                         <HBox alignment="BASELINE_LEFT" spacing="4">
                                                             <children>
-                                                                <Label fx:id="lblTotalKatalog" text="42" style="-fx-text-fill: #111827; -fx-font-size: 22; -fx-font-weight: bold;" />
-                                                                <Label text="Barang" style="-fx-text-fill: #6B7280; -fx-font-size: 12;" />
+                                                                <Label fx:id="lblTotalKatalog" style="-fx-text-fill: #111827; -fx-font-size: 22; -fx-font-weight: bold;" text="42" />
+                                                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12;" text="Barang" />
                                                             </children>
                                                         </HBox>
                                                     </children>
                                                 </VBox>
                                             </children>
                                         </HBox>
-                                        <HBox alignment="CENTER_LEFT" spacing="14" prefWidth="290" HBox.hgrow="ALWAYS" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 16;">
+                                        <HBox alignment="CENTER_LEFT" prefWidth="290" spacing="14" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 16;" HBox.hgrow="ALWAYS">
                                             <children>
-                                                <StackPane maxWidth="42" maxHeight="42" style="-fx-min-width: 42; -fx-min-height: 42; -fx-max-width: 42; -fx-max-height: 42; -fx-background-color: #1565C0; -fx-background-radius: 8;">
+                                                <StackPane maxHeight="42" maxWidth="42" style="-fx-min-width: 42; -fx-min-height: 42; -fx-max-width: 42; -fx-max-height: 42; -fx-background-color: #1565C0; -fx-background-radius: 8;">
                                                     <children>
-                                                        <Label text="✓" style="-fx-text-fill: #FFFFFF; -fx-font-size: 16;" />
+                                                        <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 16;" text="✓" />
                                                     </children>
                                                 </StackPane>
                                                 <VBox>
                                                     <children>
-                                                        <Label text="Aktif di Aplikasi" style="-fx-text-fill: #6B7280; -fx-font-size: 12;" />
+                                                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12;" text="Aktif di Aplikasi" />
                                                         <HBox alignment="BASELINE_LEFT" spacing="4">
                                                             <children>
-                                                                <Label fx:id="lblAktifAplikasi" text="38" style="-fx-text-fill: #111827; -fx-font-size: 22; -fx-font-weight: bold;" />
-                                                                <Label text="Barang" style="-fx-text-fill: #6B7280; -fx-font-size: 12;" />
+                                                                <Label fx:id="lblAktifAplikasi" style="-fx-text-fill: #111827; -fx-font-size: 22; -fx-font-weight: bold;" text="38" />
+                                                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12;" text="Barang" />
                                                             </children>
                                                         </HBox>
                                                     </children>
                                                 </VBox>
                                             </children>
                                         </HBox>
-                                        <HBox alignment="CENTER_LEFT" spacing="14" prefWidth="290" HBox.hgrow="ALWAYS" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 16;">
+                                        <HBox alignment="CENTER_LEFT" prefWidth="290" spacing="14" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 16;" HBox.hgrow="ALWAYS">
                                             <children>
-                                                <StackPane maxWidth="42" maxHeight="42" style="-fx-min-width: 42; -fx-min-height: 42; -fx-max-width: 42; -fx-max-height: 42; -fx-background-color: #EF4444; -fx-background-radius: 8;">
+                                                <StackPane maxHeight="42" maxWidth="42" style="-fx-min-width: 42; -fx-min-height: 42; -fx-max-width: 42; -fx-max-height: 42; -fx-background-color: #EF4444; -fx-background-radius: 8;">
                                                     <children>
-                                                        <Label text="⛔" style="-fx-text-fill: #FFFFFF; -fx-font-size: 16;" />
+                                                        <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 16;" text="⛔" />
                                                     </children>
                                                 </StackPane>
                                                 <VBox>
                                                     <children>
-                                                        <Label text="Menu Kosong/Non-Aktif" wrapText="true" style="-fx-text-fill: #6B7280; -fx-font-size: 12;" />
+                                                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12;" text="Menu Kosong/Non-Aktif" wrapText="true" />
                                                         <HBox alignment="BASELINE_LEFT" spacing="4">
                                                             <children>
-                                                                <Label fx:id="lblMenuNonAktif" text="4" style="-fx-text-fill: #111827; -fx-font-size: 22; -fx-font-weight: bold;" />
-                                                                <Label text="Barang" style="-fx-text-fill: #6B7280; -fx-font-size: 12;" />
+                                                                <Label fx:id="lblMenuNonAktif" style="-fx-text-fill: #111827; -fx-font-size: 22; -fx-font-weight: bold;" text="4" />
+                                                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12;" text="Barang" />
                                                             </children>
                                                         </HBox>
                                                     </children>
@@ -99,17 +94,17 @@
                                 </HBox>
                                 <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #E5E7EB; -fx-background-radius: 8; -fx-padding: 8;">
                                     <children>
-                                        <Button fx:id="filterSemua" text="Semua" onAction="#onFilterSemua" prefHeight="34" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 12; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" />
-                                        <Button fx:id="filterMakanan" text="Makanan" onAction="#onFilterMakanan" prefHeight="34" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-font-size: 12; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" />
-                                        <Button fx:id="filterMinuman" text="Minuman" onAction="#onFilterMinuman" prefHeight="34" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-font-size: 12; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" />
-                                        <Button fx:id="filterCamilan" text="Camilan" onAction="#onFilterCamilan" prefHeight="34" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-font-size: 12; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" />
+                                        <Button fx:id="filterSemua" onAction="#onFilterSemua" prefHeight="34" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 12; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" text="Semua" />
+                                        <Button fx:id="filterMakanan" onAction="#onFilterMakanan" prefHeight="34" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-font-size: 12; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" text="Makanan" />
+                                        <Button fx:id="filterMinuman" onAction="#onFilterMinuman" prefHeight="34" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-font-size: 12; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" text="Minuman" />
+                                        <Button fx:id="filterCamilan" onAction="#onFilterCamilan" prefHeight="34" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-font-size: 12; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" text="Camilan" />
                                         <Region HBox.hgrow="ALWAYS" />
-                                        <Label text="Urutkan:" style="-fx-text-fill: #374151; -fx-font-size: 12;" />
-                                        <Label text="Terbaru  ⌄" style="-fx-text-fill: #111827; -fx-font-size: 12; -fx-font-weight: bold;" />
+                                        <Label style="-fx-text-fill: #374151; -fx-font-size: 12;" text="Urutkan:" />
+                                        <Label style="-fx-text-fill: #111827; -fx-font-size: 12; -fx-font-weight: bold;" text="Terbaru  ⌄" />
                                     </children>
                                 </HBox>
                                 <FlowPane fx:id="menuGrid" hgap="18" vgap="18" />
-                                <Label fx:id="lblFooterInfo" text="Menampilkan 6 dari 42 item menu" style="-fx-text-fill: #6B7280; -fx-font-size: 12;" />
+                                <Label fx:id="lblFooterInfo" style="-fx-text-fill: #6B7280; -fx-font-size: 12;" text="Menampilkan 6 dari 42 item menu" />
                             </children>
                         </VBox>
                     </content>

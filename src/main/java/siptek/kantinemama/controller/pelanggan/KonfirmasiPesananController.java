@@ -22,11 +22,6 @@ public class KonfirmasiPesananController {
 
     @FXML
     public void initialize() {
-        // We will update the summary box dynamically.
-        // Wait, wait! The nodes might not be laid out or accessible immediately in initialize()
-        // but since FXML properties are populated, getParent() works. Let's do it safely.
-        
-        // Let's use Platform.runLater or just run it directly. Running directly is fine in initialize().
         try {
             updateSummaryUI();
         } catch (Exception e) {
@@ -35,13 +30,11 @@ public class KonfirmasiPesananController {
     }
 
     private void updateSummaryUI() {
-        // Retrieve the parent elements
         HBox parentHBox = (HBox) cardQRIS.getParent().getParent().getParent();
         VBox summaryBox = (VBox) parentHBox.getChildren().get(0);
 
         ObservableList<CartItem> cart = appState.getCurrentCart();
         
-        // Get badge label
         HBox headerHBox = (HBox) summaryBox.getChildren().get(0);
         Label badgeLabel = (Label) headerHBox.getChildren().get(2);
         
@@ -53,7 +46,6 @@ public class KonfirmasiPesananController {
         }
         badgeLabel.setText(totalQty + " ITEMS");
 
-        // Row 1
         HBox row1 = (HBox) summaryBox.getChildren().get(2);
         if (cart.size() > 0) {
             row1.setVisible(true);
@@ -66,13 +58,13 @@ public class KonfirmasiPesananController {
 
             nameLabel.setText(item.getMenuItem().getNama());
             qtyLabel.setText(item.getQty() + "x");
-            priceLabel.setText(siptek.kantinemama.util.CurrencyUtil.formatRupiah(item.getSubtotal()));
+            double subtotalitem = item.getSubtotal(); 
+            priceLabel.setText(siptek.kantinemama.util.CurrencyUtil.formatRupiah(subtotalitem));
         } else {
             row1.setVisible(false);
             row1.setManaged(false);
         }
 
-        // Row 2
         HBox row2 = (HBox) summaryBox.getChildren().get(3);
         if (cart.size() > 1) {
             row2.setVisible(true);
@@ -85,7 +77,8 @@ public class KonfirmasiPesananController {
 
             nameLabel.setText(item.getMenuItem().getNama());
             qtyLabel.setText(item.getQty() + "x");
-            priceLabel.setText(siptek.kantinemama.util.CurrencyUtil.formatRupiah(item.getSubtotal()));
+            double subtotalitem = item.getSubtotal();
+            priceLabel.setText(siptek.kantinemama.util.CurrencyUtil.formatRupiah(subtotalitem));
         } else {
             row2.setVisible(false);
             row2.setManaged(false);

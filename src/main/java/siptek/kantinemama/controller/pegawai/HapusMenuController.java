@@ -6,12 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-/**
- * Controller stub untuk popup konfirmasi Hapus Menu (HapusMenu.fxml).
- * Method setNamaMenu(...) perlu dipanggil oleh KelolaMenuController
- * setelah FXMLLoader.load(), sebelum dialog ditampilkan, supaya teks
- * konfirmasi menyebut nama menu yang benar.
- */
 public class HapusMenuController {
 
     @FXML private Label lblKonfirmasiHapus;

@@ -2,21 +2,18 @@ package siptek.kantinemama.controller.pegawai;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import siptek.kantinemama.model.AppState;
 import siptek.kantinemama.model.MenuItem;
 import siptek.kantinemama.util.SceneNavigator;
-
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.Region;
-import javafx.stage.Stage;
 
 public class KelolaMenuController {
 
@@ -47,7 +44,6 @@ public class KelolaMenuController {
         if (menuGrid == null) return;
         menuGrid.getChildren().clear();
 
-        // 1. Add Card "+ Tambah Produk Baru"
         VBox addCard = new VBox();
         addCard.setPrefWidth(220);
         addCard.setSpacing(8);
@@ -62,7 +58,6 @@ public class KelolaMenuController {
         addCard.getChildren().addAll(plusLabel, addText);
         menuGrid.getChildren().add(addCard);
 
-        // 2. Add menu items
         for (MenuItem item : appState.getMenuItems()) {
             if (!"Semua".equals(currentCategory) && !item.getKategori().equalsIgnoreCase(currentCategory)) {
                 continue;
@@ -169,7 +164,6 @@ public class KelolaMenuController {
         currentCategory = category;
         renderMenuGrid();
         
-        // Update filter button highlighting
         filterSemua.setStyle("-fx-background-color: " + ("Semua".equals(category) ? "#0F2044; -fx-text-fill: #FFFFFF;" : "#FFFFFF; -fx-text-fill: #374151;") + " -fx-font-size: 12; -fx-background-radius: 6; -fx-cursor: hand;");
         filterMakanan.setStyle("-fx-background-color: " + ("Makanan".equals(category) ? "#0F2044; -fx-text-fill: #FFFFFF;" : "#FFFFFF; -fx-text-fill: #374151;") + " -fx-font-size: 12; -fx-background-radius: 6; -fx-cursor: hand;");
         filterMinuman.setStyle("-fx-background-color: " + ("Minuman".equals(category) ? "#0F2044; -fx-text-fill: #FFFFFF;" : "#FFFFFF; -fx-text-fill: #374151;") + " -fx-font-size: 12; -fx-background-radius: 6; -fx-cursor: hand;");

@@ -1,5 +1,7 @@
 package siptek.kantinemama.controller.pelanggan;
 
+import java.util.Random;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -14,8 +16,6 @@ import javafx.util.Duration;
 import siptek.kantinemama.model.AppState;
 import siptek.kantinemama.util.QRCodeGenerator;
 import siptek.kantinemama.util.SceneNavigator;
-
-import java.util.Random;
 
 public class PembayaranQRISController {
 
@@ -33,17 +33,15 @@ public class PembayaranQRISController {
 
     private AppState appState = AppState.getInstance();
     private Timeline timeline;
-    private int timeRemainingSeconds = 15 * 60; // 15 minutes
+    private int timeRemainingSeconds = 15 * 60; // 15 menit
 
     @FXML
     public void initialize() {
-        // Generate random order ID if not set
         if (appState.getCurrentOrderId() == null) {
             int randomNum = 10000 + new Random().nextInt(90000);
             appState.setCurrentOrderId("ORD-" + randomNum);
         }
 
-        // 1. Generate QR Code
         try {
             String qrData = String.format("KANTINEMAMA|%s|%.0f", appState.getCurrentOrderId(), appState.getCurrentTotal());
             Image qrImage = QRCodeGenerator.generate(qrData, 150);
@@ -52,7 +50,6 @@ public class PembayaranQRISController {
             e.printStackTrace();
         }
 
-        // 2. Set Total Amount Label
         try {
             VBox qrContainer = (VBox) imgQrCode.getParent();
             Label amountLabel = (Label) qrContainer.getChildren().get(4);
@@ -61,7 +58,6 @@ public class PembayaranQRISController {
             e.printStackTrace();
         }
 
-        // 3. Start Countdown Timer
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             timeRemainingSeconds--;
             if (timeRemainingSeconds <= 0) {
@@ -85,8 +81,9 @@ public class PembayaranQRISController {
         if (timeline != null) {
             timeline.stop();
         }
+        appState.clearCart();
         appState.setCurrentOrderId(null);
-        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/KonfirmasiPesanan.fxml");
+        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/KatalogMenu.fxml");
     }
 
     @FXML
@@ -95,12 +92,6 @@ public class PembayaranQRISController {
             timeline.stop();
         }
 
-        // Pesanan dibuat di sini (bukan lagi di PilihMejaController) karena
-        // alur sekarang: Pilih Meja -> Konfirmasi -> Bayar. Meja sudah
-        // tersimpan di appState.getSelectedMeja() sejak langkah Pilih Meja.
-        // Cart/orderId belum dibersihkan di sini supaya layar
-        // PembayaranBerhasil masih bisa menampilkan rincian struk;
-        // pembersihan dilakukan di PembayaranBerhasilController.
         java.util.ArrayList<siptek.kantinemama.model.CartItem> orderedItems =
                 new java.util.ArrayList<>(appState.getCurrentCart());
         siptek.kantinemama.model.Pesanan pesanan = new siptek.kantinemama.model.Pesanan(
@@ -112,7 +103,7 @@ public class PembayaranQRISController {
                 "Pesanan Baru",
                 java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))
         );
-        appState.getOrders().add(0, pesanan); // di awal list, supaya muncul paling atas di riwayat
+        appState.getOrders().add(0, pesanan); 
 
         SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/PembayaranBerhasil.fxml");
     }

@@ -53,10 +53,10 @@ class AppStateIntegrationTest {
     }
 
     @Test
-    @DisplayName("Data awal: 6 menu items ter-load")
-    void menuItems_enamItem() {
+    @DisplayName("Data awal: 12 menu items ter-load")
+    void menuItems_duaBelasItem() {
         ObservableList<MenuItem> items = AppState.getInstance().getMenuItems();
-        assertEquals(6, items.size());
+        assertEquals(12, items.size());
     }
 
     @Test

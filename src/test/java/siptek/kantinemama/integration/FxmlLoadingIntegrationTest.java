@@ -8,7 +8,7 @@ import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("FXML Loading — Integration Test Semua 17 File FXML")
+@DisplayName("FXML Loading — Integration Test 11 File FXML Aktif (pasca Revisi V2)")
 class FxmlLoadingIntegrationTest {
 
     private void assertFxmlExists(String path) {
@@ -66,7 +66,8 @@ class FxmlLoadingIntegrationTest {
         assertFxmlExists("/siptek/kantinemama/view/pelanggan/PesananSaya.fxml");
     }
 
-    // === PEGAWAI (5 files) ===
+    // === PEGAWAI (2 file aktif — Dashboard/StokBarang/LaporanKeuangan lama
+    // sudah dihapus navigasinya sejak Revisi V2, lihat REVISI-V2-KANTINEMAMA.md) ===
 
     @Test
     @DisplayName("Pegawai: KelolaMenu.fxml ada")
@@ -80,25 +81,8 @@ class FxmlLoadingIntegrationTest {
         assertFxmlExists("/siptek/kantinemama/view/pegawai/AntrianPesanan.fxml");
     }
 
-    @Test
-    @DisplayName("Pegawai: TambahMenuBaru.fxml ada")
-    void pegawai_tambahMenuBaru() {
-        assertFxmlExists("/siptek/kantinemama/view/pegawai/TambahMenuBaru.fxml");
-    }
-
-    @Test
-    @DisplayName("Pegawai: EditMenu.fxml ada")
-    void pegawai_editMenu() {
-        assertFxmlExists("/siptek/kantinemama/view/pegawai/EditMenu.fxml");
-    }
-
-    @Test
-    @DisplayName("Pegawai: HapusMenu.fxml ada")
-    void pegawai_hapusMenu() {
-        assertFxmlExists("/siptek/kantinemama/view/pegawai/HapusMenu.fxml");
-    }
-
-    // === OWNER (1 file) ===
+    // === OWNER (1 file aktif — scope Owner dipangkas jadi HANYA Laporan
+    // Keuangan sejak Revisi V2, lihat REVISI-V2-KANTINEMAMA.md) ===
 
     @Test
     @DisplayName("Owner: LaporanKeuangan1.fxml ada")

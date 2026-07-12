@@ -1,5 +1,10 @@
 package siptek.kantinemama.controller.pelanggan;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Random;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,18 +17,10 @@ import siptek.kantinemama.model.CartItem;
 import siptek.kantinemama.model.Pesanan;
 import siptek.kantinemama.util.SceneNavigator;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Random;
-
 public class PembayaranTunaiController {
 
     @FXML
     private Button btnKembaliKatalog;
-
-    @FXML
-    private Button btnBatal;
 
     @FXML
     private Label lblTotal;
@@ -47,12 +44,10 @@ public class PembayaranTunaiController {
     private void updateReceiptUI() {
         HBox parentHBox = (HBox) lblTotal.getParent().getParent().getParent();
         
-        // Update left side description
         VBox leftBox = (VBox) parentHBox.getChildren().get(0);
         Label descLabel = (Label) leftBox.getChildren().get(1);
         descLabel.setText("Silakan tunjukkan struk ini atau sebutkan Order ID #" + appState.getCurrentOrderId() + " kepada Kasir untuk melakukan pembayaran tunai.");
 
-        // Update receipt details
         VBox receiptBox = (VBox) parentHBox.getChildren().get(1);
         Label transIdLabel = (Label) receiptBox.getChildren().get(1);
         transIdLabel.setText("TRANS ID: #" + appState.getCurrentOrderId());
@@ -62,7 +57,6 @@ public class PembayaranTunaiController {
 
         ObservableList<CartItem> cart = appState.getCurrentCart();
 
-        // Row 1
         HBox row1 = (HBox) receiptBox.getChildren().get(5);
         if (cart.size() > 0) {
             row1.setVisible(true);
@@ -77,7 +71,6 @@ public class PembayaranTunaiController {
             row1.setManaged(false);
         }
 
-        // Row 2
         HBox row2 = (HBox) receiptBox.getChildren().get(6);
         if (cart.size() > 1) {
             row2.setVisible(true);
@@ -114,18 +107,7 @@ public class PembayaranTunaiController {
     }
 
     @FXML
-    void onBatal(ActionEvent event) {
-        // Jika batal, order id yang digenerate di reset supaya bisa buat metode bayar lain
-        appState.setCurrentOrderId(null);
-        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/KonfirmasiPesanan.fxml");
-    }
-
-    @FXML
     void onKembaliKatalog(ActionEvent event) {
-        // REVISI V2: meja sekarang sudah dipilih SEBELUM sampai ke halaman ini
-        // (lewat PilihMeja -> KonfirmasiPesanan -> sini), jadi tidak lagi
-        // hardcode "-". Status pembayaran tetap "Belum Bayar" karena tunai
-        // baru divalidasi kasir saat pesanan diantar (lihat AntrianPesananController).
         ArrayList<CartItem> orderedItems = new ArrayList<>(appState.getCurrentCart());
         Pesanan pesanan = new Pesanan(
                 appState.getCurrentOrderId(),
@@ -136,11 +118,11 @@ public class PembayaranTunaiController {
                 "Pesanan Baru",
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))
         );
-        appState.getOrders().add(0, pesanan); // di awal list, supaya muncul paling atas di riwayat
+        appState.getOrders().add(0, pesanan); 
 
         appState.clearCart();
         appState.setCurrentOrderId(null);
         appState.setSelectedMeja(null);
-        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/KatalogMenu.fxml");
+        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/HalamanKatalogMenu.fxml");
     }
 }

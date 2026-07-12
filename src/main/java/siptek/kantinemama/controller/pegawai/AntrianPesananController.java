@@ -1,5 +1,8 @@
 package siptek.kantinemama.controller.pegawai;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,27 +14,7 @@ import javafx.scene.layout.VBox;
 import siptek.kantinemama.model.AppState;
 import siptek.kantinemama.model.Pesanan;
 import siptek.kantinemama.util.SceneNavigator;
-import javafx.animation.PauseTransition;
-import javafx.util.Duration;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * REVISI V2: navbar disederhanakan (tanpa sidebar/tab toggle), sesuai
- * AntrianPesanan.fxml versi baru. Field & method yang menunjuk ke halaman
- * yang sudah dihapus (Dasbor, Stok Barang, Laporan Keuangan, Pengaturan)
- * ikut dihapus dari controller ini. Lihat REVISI-V2-KANTINEMAMA.md Bagian 5 & 9.
- *
- * DUA BUG DIPERBAIKI DI VERSI INI:
- * 1. refreshQueueUI() dulu mencari HBox kolom lewat tabPesananAktif.getParent()...
- *    yang sekarang sudah tidak ada di FXML -> NullPointerException. Diganti
- *    pakai fx:id langsung ke 3 kolom (colPesananBaru/colSedangDimasak/colSiapDiambil).
- * 2. onMulaiMemasak1/2 dan onSelesaiAntar memanggil refreshQueueUI() (yang
- *    reset field orderNew1/orderNew2/orderCooking) SEBELUM field itu dipakai
- *    lagi di showInfo(...) -> NullPointerException. Diperbaiki dengan menyimpan
- *    referensi ke variabel lokal sebelum refresh.
- */
 public class AntrianPesananController {
 
     @FXML private Button btnMulaiMemasak1;
@@ -65,12 +48,7 @@ public class AntrianPesananController {
             List<Pesanan> cookingOrdersList = new ArrayList<>();
             List<Pesanan> readyOrdersList = new ArrayList<>();
 
-            // REVISI: pesanan baru sekarang disisipkan di AWAL allOrders
-            // (lihat PembayaranQRISController/PembayaranTunaiController yang
-            // pakai add(0, pesanan) supaya "Pesanan Saya" pelanggan nampilin
-            // pesanan terbaru di atas). Supaya dapur tetap FIFO (pesanan
-            // paling LAMA diproses duluan), loop di sini jalan MUNDUR dari
-            // akhir list ke awal, bukan maju seperti sebelumnya.
+        
             for (int i = allOrders.size() - 1; i >= 0; i--) {
                 Pesanan p = allOrders.get(i);
                 if ("Pesanan Baru".equalsIgnoreCase(p.getStatusDapur())) {
@@ -82,7 +60,6 @@ public class AntrianPesananController {
                 }
             }
 
-            // 1. Kolom Pesanan Baru
             Label lblCountNew = (Label) ((HBox) colPesananBaru.getChildren().get(0)).getChildren().get(1);
             lblCountNew.setText(String.valueOf(newOrdersList.size()));
 
@@ -92,14 +69,12 @@ public class AntrianPesananController {
             updateNewCard(colPesananBaru, 1, orderNew1);
             updateNewCard(colPesananBaru, 2, orderNew2);
 
-            // 2. Kolom Sedang Dimasak
             Label lblCountCooking = (Label) ((HBox) colSedangDimasak.getChildren().get(0)).getChildren().get(1);
             lblCountCooking.setText(String.valueOf(cookingOrdersList.size()));
 
             orderCooking = cookingOrdersList.size() > 0 ? cookingOrdersList.get(0) : null;
             updateCookingCard(colSedangDimasak, orderCooking);
 
-            // 3. Kolom Siap Diambil
             Label lblCountReady = (Label) ((HBox) colSiapDiambil.getChildren().get(0)).getChildren().get(1);
             lblCountReady.setText(String.valueOf(readyOrdersList.size()));
 
@@ -206,11 +181,8 @@ public class AntrianPesananController {
         if (orderNew1 != null) {
             Pesanan target = orderNew1;
             target.setStatusDapur("Sedang Dimasak");
-            if (!"Lunas".equalsIgnoreCase(target.getStatusPembayaran())) {
-                target.setStatusPembayaran("Lunas");
-            }
             refreshQueueUI();
-            showInfo("Proses Memasak", "Pesanan #" + target.getOrderId() + " telah dibayar dan dipindahkan ke dapur.");
+            showInfo("Proses Memasak", "Pesanan #" + target.getOrderId() + " dipindahkan ke dapur.");
         }
     }
 
@@ -219,11 +191,8 @@ public class AntrianPesananController {
         if (orderNew2 != null) {
             Pesanan target = orderNew2;
             target.setStatusDapur("Sedang Dimasak");
-            if (!"Lunas".equalsIgnoreCase(target.getStatusPembayaran())) {
-                target.setStatusPembayaran("Lunas");
-            }
             refreshQueueUI();
-            showInfo("Proses Memasak", "Pesanan #" + target.getOrderId() + " telah dibayar dan dipindahkan ke dapur.");
+            showInfo("Proses Memasak", "Pesanan #" + target.getOrderId() + " dipindahkan ke dapur.");
         }
     }
 
@@ -232,34 +201,11 @@ public class AntrianPesananController {
         if (orderCooking != null) {
             Pesanan target = orderCooking;
             target.setStatusDapur("Selesai");
-
-            String kodeMeja = target.getMeja();
-            if (kodeMeja != null) {
-                PauseTransition delayMakan = new PauseTransition(Duration.minutes(1));
-
-                delayMakan.setOnFinished(e -> {
-                boolean ditemukan = false;
-                for(siptek.kantinemama.model.Meja meja : appState.getTables()) {
-                    if (meja.getKode().equals(kodeMeja)) {
-                        meja.setStatus("KOSONG");
-
-                        siptek.kantinemama.util.PersistenceManager.saveState(appState);
-                        ditemukan = true;
-                        break;
-                    }
-                }
-                if (!ditemukan) {
-                    System.out.println("LOG : Meja dengan kode" + kodeMeja + " tidak ditemukan.");
-                } else {
-                    System.out.println("LOG : Meja dengan kode" + kodeMeja + " telah dikosongkan.");
-                }
-            });
-
-            delayMakan.play();
+            if (!"Lunas".equalsIgnoreCase(target.getStatusPembayaran())) {
+                target.setStatusPembayaran("Lunas");
             }
-            
             refreshQueueUI();
-            showInfo("Pesanan Selesai", "Pesanan #" + target.getOrderId() + " telah disajikan.\n" + target.getMeja().replace("mejaMO", "MEJA  ") + " akan otomatis dikosongkan dalam 1 menit (Demo).");
+            showInfo("Pesanan Selesai", "Pesanan #" + target.getOrderId() + " telah disajikan.");
         }
     }
 
@@ -274,5 +220,4 @@ public class AntrianPesananController {
         alert.setContentText(content);
         alert.showAndWait();
     }
-    
 }

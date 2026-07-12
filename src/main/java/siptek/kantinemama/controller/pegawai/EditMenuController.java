@@ -1,5 +1,7 @@
 package siptek.kantinemama.controller.pegawai;
 
+import java.io.File;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,15 +16,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
-
-/**
- * Controller stub untuk popup Edit Menu (EditMenu.fxml).
- * Field dan handler sudah lengkap sesuai fx:id di FXML. Method
- * setMenuItem(...) perlu dipanggil oleh KelolaMenuController sesaat
- * setelah dialog ini dibuka, untuk mengisi form dengan data menu yang
- * sedang diedit. Logic simpan-ke-AppState masih perlu diisi (lihat TODO).
- */
 public class EditMenuController {
 
     @FXML private Button btnTutupEdit;
@@ -42,14 +35,8 @@ public class EditMenuController {
 
     @FXML
     public void initialize() {
-        setupToggleSwitch(toggleStatusEdit);
     }
 
-    /**
-     * Panggil method ini dari KelolaMenuController setelah FXMLLoader.load(),
-     * sebelum dialog ditampilkan, untuk mengisi form dengan data menu asli.
-     * TODO (Antigravity): sesuaikan tipe parameter dengan class MenuItem asli.
-     */
     public void setMenuItem(siptek.kantinemama.model.MenuItem item) {
         this.menuItemIdYangDiedit = item.getId();
         txtNamaMenuEdit.setText(item.getNama());
@@ -59,7 +46,6 @@ public class EditMenuController {
         txtDeskripsiEdit.setText("");
         toggleStatusEdit.setSelected(item.isAktif());
 
-        // Load image preview
         try {
             java.io.InputStream stream = getClass().getResourceAsStream("/siptek/kantinemama/" + item.getGambarPath());
             if (stream != null) {
@@ -147,7 +133,6 @@ public class EditMenuController {
             return;
         }
 
-        // Find item in AppState
         siptek.kantinemama.model.MenuItem item = null;
         for (siptek.kantinemama.model.MenuItem m : siptek.kantinemama.model.AppState.getInstance().getMenuItems()) {
             if (m.getId().equals(menuItemIdYangDiedit)) {
@@ -161,14 +146,12 @@ public class EditMenuController {
             return;
         }
 
-        // Update fields
         item.setNama(nama.trim());
         item.setKategori(kategori);
         item.setHarga(harga);
         item.setSisaPorsi(stok);
         item.setAktif(toggleStatusEdit.isSelected());
 
-        // Process image path if changed
         if (fotoTerpilih != null) {
             String slug = slugify(nama);
             saveImage(fotoTerpilih, slug);
@@ -216,30 +199,5 @@ public class EditMenuController {
     private void tutupDialog(ActionEvent event) {
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         stage.close();
-    }
-
-    private void setupToggleSwitch(ToggleButton toggle) {
-        javafx.scene.shape.Circle circle = new javafx.scene.shape.Circle(8);
-        circle.setFill(javafx.scene.paint.Color.WHITE);
-        toggle.setGraphic(circle);
-        toggle.setContentDisplay(javafx.scene.control.ContentDisplay.GRAPHIC_ONLY);
-
-        toggle.selectedProperty().addListener((obs, oldVal, newVal) -> {
-            updateToggleStyle(toggle, newVal);
-        });
-
-        updateToggleStyle(toggle, toggle.isSelected());
-    }
-
-    private void updateToggleStyle(ToggleButton toggle, boolean isSelected) {
-        if (isSelected) {
-            toggle.setStyle("-fx-background-color: #1565C0; -fx-background-radius: 13; -fx-border-color: transparent; -fx-cursor: hand;");
-            toggle.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
-            toggle.setPadding(new javafx.geometry.Insets(0, 4, 0, 0));
-        } else {
-            toggle.setStyle("-fx-background-color: #D1D5DB; -fx-background-radius: 13; -fx-border-color: transparent; -fx-cursor: hand;");
-            toggle.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
-            toggle.setPadding(new javafx.geometry.Insets(0, 0, 0, 4));
-        }
     }
 }

@@ -1,65 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.control.Label?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefWidth="712" prefHeight="640" style="-fx-background-color: #F9FAFB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="siptek.kantinemama.controller.pegawai.TambahMenuBaruController">
+<AnchorPane prefHeight="640" prefWidth="712" style="-fx-background-color: #F9FAFB;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="siptek.kantinemama.controller.pegawai.TambahMenuBaruController">
     <children>
-        <VBox AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <VBox AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
             <children>
                 <HBox alignment="CENTER_LEFT" style="-fx-padding: 20 24 20 24;">
                     <children>
-                        <Label text="Tambah Menu Baru" style="-fx-text-fill: #111827; -fx-font-size: 20; -fx-font-weight: bold;" />
+                        <Label style="-fx-text-fill: #111827; -fx-font-size: 20; -fx-font-weight: bold;" text="Tambah Menu Baru" />
                         <Region HBox.hgrow="ALWAYS" />
-                        <Button fx:id="btnTutupTambah" text="✕" onAction="#onTutupTambah" prefWidth="30" prefHeight="30" style="-fx-background-color: transparent; -fx-text-fill: #374151; -fx-font-size: 16; -fx-border-color: transparent; -fx-cursor: hand;" />
+                        <Button fx:id="btnTutupTambah" onAction="#onTutupTambah" prefHeight="30" prefWidth="30" style="-fx-background-color: transparent; -fx-text-fill: #374151; -fx-font-size: 16; -fx-border-color: transparent; -fx-cursor: hand;" text="✕" />
                     </children>
                 </HBox>
-                <Region prefHeight="1" minHeight="1" maxHeight="1" style="-fx-background-color: #E5E7EB;" />
+                <Region maxHeight="1" minHeight="1" prefHeight="1" style="-fx-background-color: #E5E7EB;" />
                 <HBox spacing="24" style="-fx-padding: 24;">
                     <children>
-                        <VBox spacing="8" prefWidth="210">
+                        <VBox prefWidth="210" spacing="8">
                             <children>
-                                <Label text="FOTO MENU" style="-fx-text-fill: #374151; -fx-font-size: 11; -fx-font-weight: bold;" />
-                                <StackPane fx:id="fotoUploadBoxTambah" onMouseClicked="#onPilihFotoTambah" prefWidth="200" prefHeight="200" style="-fx-background-color: #F3F4F6; -fx-border-color: #D1D5DB; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;">
+                                <Label style="-fx-text-fill: #374151; -fx-font-size: 11; -fx-font-weight: bold;" text="FOTO MENU" />
+                                <StackPane fx:id="fotoUploadBoxTambah" onMouseClicked="#onPilihFotoTambah" prefHeight="200" prefWidth="200" style="-fx-background-color: #F3F4F6; -fx-border-color: #D1D5DB; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;">
                                     <children>
                                         <VBox fx:id="placeholderFotoTambah" alignment="CENTER" spacing="8">
                                             <children>
-                                                <Label text="📷" style="-fx-text-fill: #9CA3AF; -fx-font-size: 24;" />
-                                                <Label text="Upload Foto Menu" wrapText="true" textAlignment="CENTER" style="-fx-text-fill: #6B7280; -fx-font-size: 12; -fx-font-weight: bold;" />
+                                                <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 24;" text="📷" />
+                                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12; -fx-font-weight: bold;" text="Upload Foto Menu" textAlignment="CENTER" wrapText="true" />
                                             </children>
                                         </VBox>
-                                        <ImageView fx:id="imgPreviewTambah" fitWidth="200" fitHeight="200" preserveRatio="false" visible="false" managed="false" />
+                                        <ImageView fx:id="imgPreviewTambah" fitHeight="200" fitWidth="200" managed="false" preserveRatio="false" visible="false" />
                                     </children>
                                 </StackPane>
-                                <Label text="Format: JPG, PNG. Maks: 2MB" wrapText="true" style="-fx-text-fill: #9CA3AF; -fx-font-size: 10;" />
+                                <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 10;" text="Format: JPG, PNG. Maks: 2MB" wrapText="true" />
                             </children>
                         </VBox>
                         <VBox spacing="14" HBox.hgrow="ALWAYS">
                             <children>
                                 <VBox spacing="6">
                                     <children>
-                                        <Label text="NAMA MENU" style="-fx-text-fill: #374151; -fx-font-size: 11; -fx-font-weight: bold;" />
-                                        <TextField fx:id="txtNamaMenuTambah" promptText="Masukkan nama menu" prefHeight="40" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 13;" />
+                                        <Label style="-fx-text-fill: #374151; -fx-font-size: 11; -fx-font-weight: bold;" text="NAMA MENU" />
+                                        <TextField fx:id="txtNamaMenuTambah" prefHeight="40" promptText="Masukkan nama menu" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 13;" />
                                     </children>
                                 </VBox>
                                 <HBox spacing="14">
                                     <children>
                                         <VBox spacing="6" HBox.hgrow="ALWAYS">
                                             <children>
-                                                <Label text="KATEGORI" style="-fx-text-fill: #374151; -fx-font-size: 11; -fx-font-weight: bold;" />
-                                                <ComboBox fx:id="cmbKategoriTambah" promptText="Pilih Kategori" maxWidth="1.7976931348623157E308" prefHeight="40" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 13;">
+                                                <Label style="-fx-text-fill: #374151; -fx-font-size: 11; -fx-font-weight: bold;" text="KATEGORI" />
+                                                <ComboBox fx:id="cmbKategoriTambah" maxWidth="1.7976931348623157E308" prefHeight="40" promptText="Pilih Kategori" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 13;">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <String fx:value="Makanan" />
@@ -72,29 +73,29 @@
                                         </VBox>
                                         <VBox spacing="6" HBox.hgrow="ALWAYS">
                                             <children>
-                                                <Label text="HARGA JUAL (RP)" style="-fx-text-fill: #374151; -fx-font-size: 11; -fx-font-weight: bold;" />
-                                                <TextField fx:id="txtHargaTambah" promptText="Contoh: 25000" prefHeight="40" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 13;" />
+                                                <Label style="-fx-text-fill: #374151; -fx-font-size: 11; -fx-font-weight: bold;" text="HARGA JUAL (RP)" />
+                                                <TextField fx:id="txtHargaTambah" prefHeight="40" promptText="Contoh: 25000" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 13;" />
                                             </children>
                                         </VBox>
                                     </children>
                                 </HBox>
                                 <VBox spacing="6">
                                     <children>
-                                        <Label text="DESKRIPSI (OPSIONAL)" style="-fx-text-fill: #374151; -fx-font-size: 11; -fx-font-weight: bold;" />
-                                        <TextArea fx:id="txtDeskripsiTambah" promptText="Tambahkan deskripsi singkat..." prefHeight="70" wrapText="true" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 13;" />
+                                        <Label style="-fx-text-fill: #374151; -fx-font-size: 11; -fx-font-weight: bold;" text="DESKRIPSI (OPSIONAL)" />
+                                        <TextArea fx:id="txtDeskripsiTambah" prefHeight="70" promptText="Tambahkan deskripsi singkat..." style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 13;" wrapText="true" />
                                     </children>
                                 </VBox>
-                                <Region prefHeight="1" minHeight="1" maxHeight="1" style="-fx-background-color: #E5E7EB;" />
+                                <Region maxHeight="1" minHeight="1" prefHeight="1" style="-fx-background-color: #E5E7EB;" />
                                 <HBox alignment="CENTER_LEFT">
                                     <children>
                                         <VBox>
                                             <children>
-                                                <Label text="STATUS" style="-fx-text-fill: #111827; -fx-font-size: 13; -fx-font-weight: bold;" />
-                                                <Label fx:id="lblStatusTambahHint" text="Nonaktif — akan otomatis muncul ke pelanggan setelah stok diisi lewat Edit Menu" wrapText="true" maxWidth="260" style="-fx-text-fill: #9CA3AF; -fx-font-size: 10;" />
+                                                <Label style="-fx-text-fill: #111827; -fx-font-size: 13; -fx-font-weight: bold;" text="STATUS" />
+                                                <Label fx:id="lblStatusTambahHint" maxWidth="260" style="-fx-text-fill: #9CA3AF; -fx-font-size: 10;" text="Nonaktif — akan otomatis muncul ke pelanggan setelah stok diisi lewat Edit Menu" wrapText="true" />
                                             </children>
                                         </VBox>
                                         <Region HBox.hgrow="ALWAYS" />
-                                        <ToggleButton fx:id="toggleStatusTambah" selected="false" text="" prefWidth="46" prefHeight="26" style="-fx-background-color: #D1D5DB; -fx-background-radius: 13; -fx-border-color: transparent; -fx-cursor: hand;" />
+                                        <ToggleButton fx:id="toggleStatusTambah" prefHeight="26" prefWidth="46" selected="false" style="-fx-background-color: #D1D5DB; -fx-background-radius: 13; -fx-border-color: transparent; -fx-cursor: hand;" text="" />
                                     </children>
                                 </HBox>
                             </children>
@@ -102,11 +103,14 @@
                     </children>
                 </HBox>
                 <Region VBox.vgrow="ALWAYS" />
-                <Region prefHeight="1" minHeight="1" maxHeight="1" style="-fx-background-color: #E5E7EB;" />
+                <Region maxHeight="1" minHeight="1" prefHeight="1" style="-fx-background-color: #E5E7EB;" />
                 <HBox alignment="CENTER_RIGHT" spacing="10" style="-fx-padding: 18 24 18 24;">
                     <children>
-                        <Button fx:id="btnBatalTambah" text="BATAL" onAction="#onBatalTambah" prefWidth="110" prefHeight="42" style="-fx-background-color: #FFFFFF; -fx-text-fill: #1565C0; -fx-font-size: 13; -fx-font-weight: bold; -fx-border-color: #1565C0; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;" />
-                        <Button fx:id="btnSimpanTambah" text="💾  SIMPAN MENU" onAction="#onSimpanMenuBaru" prefHeight="42" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 13; -fx-font-weight: bold; -fx-background-radius: 8; -fx-border-color: transparent; -fx-cursor: hand;" />
+                        <Button fx:id="btnBatalTambah" onAction="#onBatalTambah" prefHeight="42" prefWidth="110" style="-fx-background-color: #FFFFFF; -fx-text-fill: #1565C0; -fx-font-size: 13; -fx-font-weight: bold; -fx-border-color: #1565C0; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;" text="BATAL" />
+                        <Button fx:id="btnSimpanTambah" onAction="#onSimpanMenuBaru" prefHeight="42" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 13; -fx-font-weight: bold; -fx-background-radius: 8; -fx-border-color: transparent; -fx-cursor: hand;" text="SIMPAN MENU">
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding></Button>
                     </children>
                 </HBox>
             </children>

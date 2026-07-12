@@ -2,7 +2,12 @@ package siptek.kantinemama.controller.pelanggan;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import siptek.kantinemama.model.AppState;
 import siptek.kantinemama.util.SceneNavigator;
 
@@ -86,7 +91,7 @@ public class HalamanAwalUtamaController {
 
     @FXML
     void onPesanClick(ActionEvent event) {
-        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/KatalogMenu.fxml");
+        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/HalamanKatalogMenu.fxml");
     }
 
     private void showError(String title, String content) {

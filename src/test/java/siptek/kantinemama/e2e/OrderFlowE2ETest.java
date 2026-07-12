@@ -30,7 +30,7 @@ class OrderFlowE2ETest {
     void step1_menuTersedia() {
         ObservableList<MenuItem> menu = state.getMenuItems();
         assertFalse(menu.isEmpty());
-        assertEquals(6, menu.size());
+        assertEquals(12, menu.size());
     }
 
     @Test
@@ -55,8 +55,8 @@ class OrderFlowE2ETest {
         for (CartItem item : state.getCurrentCart()) {
             total += item.getSubtotal();
         }
-        // 28000*2 + 18000*1 = 74000
-        assertEquals(74000.0, total, 0.001);
+        // 15000*2 + 5000*1 = 35000
+        assertEquals(35000.0, total, 0.001);
         state.setCurrentTotal(total);
     }
 
