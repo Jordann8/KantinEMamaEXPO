@@ -49,11 +49,7 @@ public class HalamanAwalUtamaController {
 
     @FXML
     void onDenahClick(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Denah Kantin");
-        alert.setHeaderText("Denah Kantin E Mama");
-        alert.setContentText("Denah kantin saat ini menampilkan area makan utama (Meja 1-17) di area depan kasir.");
-        alert.showAndWait();
+        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/DenahMeja.fxml");
     }
 
     @FXML

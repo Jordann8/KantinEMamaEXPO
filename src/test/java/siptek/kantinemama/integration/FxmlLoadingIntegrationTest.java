@@ -25,9 +25,9 @@ class FxmlLoadingIntegrationTest {
     }
 
     @Test
-    @DisplayName("Pelanggan: KatalogMenu.fxml ada")
+    @DisplayName("Pelanggan: HalamanKatalogMenu.fxml ada")
     void pelanggan_katalogMenu() {
-        assertFxmlExists("/siptek/kantinemama/view/pelanggan/KatalogMenu.fxml");
+        assertFxmlExists("/siptek/kantinemama/view/pelanggan/HalamanKatalogMenu.fxml");
     }
 
     @Test

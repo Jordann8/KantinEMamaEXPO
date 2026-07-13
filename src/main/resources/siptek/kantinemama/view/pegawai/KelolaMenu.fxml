@@ -99,12 +99,9 @@
                                         <Button fx:id="filterMinuman" onAction="#onFilterMinuman" prefHeight="34" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-font-size: 12; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" text="Minuman" />
                                         <Button fx:id="filterCamilan" onAction="#onFilterCamilan" prefHeight="34" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-font-size: 12; -fx-background-radius: 6; -fx-border-color: transparent; -fx-cursor: hand;" text="Camilan" />
                                         <Region HBox.hgrow="ALWAYS" />
-                                        <Label style="-fx-text-fill: #374151; -fx-font-size: 12;" text="Urutkan:" />
-                                        <Label style="-fx-text-fill: #111827; -fx-font-size: 12; -fx-font-weight: bold;" text="Terbaru  ⌄" />
                                     </children>
                                 </HBox>
                                 <FlowPane fx:id="menuGrid" hgap="18" vgap="18" />
-                                <Label fx:id="lblFooterInfo" style="-fx-text-fill: #6B7280; -fx-font-size: 12;" text="Menampilkan 6 dari 42 item menu" />
                             </children>
                         </VBox>
                     </content>

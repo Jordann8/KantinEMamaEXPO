@@ -8,18 +8,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import siptek.kantinemama.model.AppState;
 import siptek.kantinemama.model.Meja;
 import siptek.kantinemama.util.SceneNavigator;
 
-public class PilihMejaController {
+public class DenahMejaController {
 
-    @FXML private Button btnBatal;
-    @FXML private Button btnKonfirmasi;
     @FXML private Button btnTutup;
-    @FXML private Label lblMejaTerpilih;
 
     @FXML private VBox mejaMO1;
     @FXML private VBox mejaMO2;
@@ -65,7 +61,6 @@ public class PilihMejaController {
         appState.setSelectedMeja(null);
 
         refreshMejaStyles();
-        lblMejaTerpilih.setText("Belum ada meja terpilih");
     }
 
     private void refreshMejaStyles() {
@@ -76,79 +71,20 @@ public class PilihMejaController {
             Label textLabel = (Label) node.getChildren().get(0);
 
             if ("KOSONG".equals(meja.getStatus())) {
-                node.setStyle("-fx-background-color: #E0F9F9; -fx-border-color: #26C6DA; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;");
+                node.setStyle("-fx-background-color: #E0F9F9; -fx-border-color: #26C6DA; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; ");
                 textLabel.setStyle("-fx-text-fill: #0F2044; -fx-font-size: 14; -fx-font-weight: bold;");
             } else if ("TERISI".equals(meja.getStatus())) {
-                node.setStyle("-fx-background-color: #FFEBEE; -fx-border-color: #EF4444; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;");
+                node.setStyle("-fx-background-color: #FFEBEE; -fx-border-color: #EF4444; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; ");
                 textLabel.setStyle("-fx-text-fill: #EF4444; -fx-font-size: 14; -fx-font-weight: bold;");
-            } else if ("TERPILIH".equals(meja.getStatus())) {
-                node.setStyle("-fx-background-color: #BBDEFB; -fx-border-color: #1565C0; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;");
-                textLabel.setStyle("-fx-text-fill: #1565C0; -fx-font-size: 14; -fx-font-weight: bold;");
-            }
+            } 
         }
-    }
-
-    @FXML
-    void onPilihMeja(MouseEvent event) {
-        VBox clickedNode = (VBox) event.getSource();
-        String kodeMeja = clickedNode.getId();
-
-        Meja clickedMeja = null;
-        for (Meja meja : appState.getTables()) {
-            if (meja.getKode().equals(kodeMeja)) {
-                clickedMeja = meja;
-                break;
-            }
-        }
-
-        if (clickedMeja == null) return;
-
-        if ("TERISI".equals(clickedMeja.getStatus())) {
-            showWarning("Meja Terisi", "Maaf, meja ini sedang terisi oleh pelanggan lain.");
-            return;
-        }
-
-        for (Meja meja : appState.getTables()) {
-            if ("TERPILIH".equals(meja.getStatus())) {
-                meja.setStatus("KOSONG");
-            }
-        }
-
-        clickedMeja.setStatus("TERPILIH");
-        appState.setSelectedMeja(kodeMeja);
-        
-        Label textLabel = (Label) clickedNode.getChildren().get(0);
-        lblMejaTerpilih.setText(textLabel.getText());
-
-        refreshMejaStyles();
-    }
-
-    @FXML
-    void onBatal(ActionEvent event) {
-        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/HalamanKatalogMenu.fxml");
     }
 
     @FXML
     void onTutup(ActionEvent event) {
-        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/HalamanKatalogMenu.fxml");
+        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/HalamanAwalUtama.fxml");
     }
 
-    @FXML
-    void onKonfirmasi(ActionEvent event) {
-        if (appState.getSelectedMeja() == null) {
-            showWarning("Pilih Meja", "Silakan pilih meja terlebih dahulu!");
-            return;
-        }
-
-        for (Meja meja : appState.getTables()) {
-            if (meja.getKode().equals(appState.getSelectedMeja())) {
-                meja.setStatus("TERISI");
-                break;
-            }
-        }
-
-        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/KonfirmasiPesanan.fxml");
-    }
 
     private void showWarning(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.WARNING);

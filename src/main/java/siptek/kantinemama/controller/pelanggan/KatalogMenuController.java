@@ -20,35 +20,21 @@ import siptek.kantinemama.util.SceneNavigator;
 
 public class KatalogMenuController {
 
-    @FXML
-    private Button btnKonfirmasi;
-    @FXML
-    private Button btnMinus1;
-    @FXML
-    private Button btnMinus2;
-    @FXML
-    private Button btnPlus1;
-    @FXML
-    private Button btnPlus2;
-    @FXML
-    private Label lblTotal;
-    @FXML
-    private Button navCart;
-    @FXML
-    private Button navHelp;
-    @FXML
-    private Button navMenu;
-    @FXML
-    private Button navNotif;
-    @FXML
-    private Button navOrders;
+    @FXML private Button btnKonfirmasi;
+    @FXML private Button btnMinus1;
+    @FXML private Button btnMinus2;
+    @FXML private Button btnPlus1;
+    @FXML private Button btnPlus2;
+    @FXML private Label lblTotal;
+    @FXML private Button navCart;
+    @FXML private Button navHelp;
+    @FXML private Button navMenu;
+    @FXML private Button navNotif;
+    @FXML private Button navOrders;
 
-    @FXML
-    private FlowPane menuGrid;
-    @FXML
-    private ImageView imgCartItem1;
-    @FXML
-    private ImageView imgCartItem2;
+    @FXML private FlowPane menuGrid;
+    @FXML private ImageView imgCartItem1;
+    @FXML private ImageView imgCartItem2;
 
     private AppState appState = AppState.getInstance();
 
@@ -59,19 +45,16 @@ public class KatalogMenuController {
     }
 
     private void renderMenuGrid() {
-        if (menuGrid == null)
-            return;
+        if (menuGrid == null) return;
         menuGrid.getChildren().clear();
 
         for (MenuItem item : appState.getMenuItems()) {
-            if (!item.isAktif())
-                continue;
+            if (!item.isAktif()) continue;
 
             VBox card = new VBox();
             card.setPrefWidth(220);
             card.setSpacing(8);
-            card.setStyle(
-                    "-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 10;");
+            card.setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 10;");
 
             StackPane sp = new StackPane();
             sp.setPrefHeight(130);
@@ -98,8 +81,7 @@ public class KatalogMenuController {
             Button btnAdd = new Button("Tambah ke Keranjang");
             btnAdd.setMaxWidth(Double.MAX_VALUE);
             btnAdd.setPrefHeight(38);
-            btnAdd.setStyle(
-                    "-fx-background-color: #FFFFFF; -fx-text-fill: #1565C0; -fx-font-size: 12; -fx-font-weight: bold; -fx-border-color: #1565C0; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;");
+            btnAdd.setStyle("-fx-background-color: #FFFFFF; -fx-text-fill: #1565C0; -fx-font-size: 12; -fx-font-weight: bold; -fx-border-color: #1565C0; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;");
             btnAdd.setOnAction(e -> addToCart(item.getId()));
 
             card.getChildren().add(btnAdd);
@@ -109,15 +91,13 @@ public class KatalogMenuController {
     }
 
     private void setImage(ImageView iv, String resourcePath) {
-        if (iv == null)
-            return;
+        if (iv == null) return;
         try {
             java.io.InputStream stream = getClass().getResourceAsStream("/siptek/kantinemama/" + resourcePath);
             if (stream != null) {
                 iv.setImage(new Image(stream));
             } else {
-                java.io.InputStream phStream = getClass()
-                        .getResourceAsStream("/siptek/kantinemama/images/placeholder.jpg");
+                java.io.InputStream phStream = getClass().getResourceAsStream("/siptek/kantinemama/images/placeholder.jpg");
                 if (phStream != null) {
                     iv.setImage(new Image(phStream));
                 }
@@ -136,8 +116,7 @@ public class KatalogMenuController {
             }
         }
 
-        if (menuItem == null)
-            return;
+        if (menuItem == null) return;
 
         if (menuItem.getSisaPorsi() <= 0) {
             showWarning("Stok Habis", "Maaf, menu " + menuItem.getNama() + " sudah habis!");
@@ -160,8 +139,7 @@ public class KatalogMenuController {
             cartItem.setQty(cartItem.getQty() + 1);
         } else {
             if (appState.getCurrentCart().size() >= 2) {
-                showWarning("Keranjang Penuh",
-                        "Untuk simulasi ini, Anda hanya dapat memesan maksimal 2 jenis menu berbeda!");
+                showWarning("Keranjang Penuh", "Untuk simulasi ini, Anda hanya dapat memesan maksimal 2 jenis menu berbeda!");
                 return;
             }
             appState.getCurrentCart().add(new CartItem(menuItem, 1));
@@ -172,7 +150,7 @@ public class KatalogMenuController {
 
     private void updateCartUI() {
         ObservableList<CartItem> cart = appState.getCurrentCart();
-
+        
         CartItem item1 = cart.size() > 0 ? cart.get(0) : null;
         CartItem item2 = cart.size() > 1 ? cart.get(1) : null;
 
@@ -242,8 +220,7 @@ public class KatalogMenuController {
 
             nameLabel.setText(item.getMenuItem().getNama());
             subtotalLabel.setText(siptek.kantinemama.util.CurrencyUtil.formatRupiah(item.getSubtotal()));
-            descLabel.setText(String.format("(%dx %s)", item.getQty(),
-                    siptek.kantinemama.util.CurrencyUtil.formatRupiah(item.getMenuItem().getHarga())));
+            descLabel.setText(String.format("(%dx %s)", item.getQty(), siptek.kantinemama.util.CurrencyUtil.formatRupiah(item.getMenuItem().getHarga())));
             qtyLabel.setText(String.valueOf(item.getQty()));
         } catch (Exception e) {
             e.printStackTrace();
@@ -260,8 +237,7 @@ public class KatalogMenuController {
 
     private void changeQty(int index, int delta) {
         ObservableList<CartItem> cart = appState.getCurrentCart();
-        if (index < 0 || index >= cart.size())
-            return;
+        if (index < 0 || index >= cart.size()) return;
 
         CartItem item = cart.get(index);
         int newQty = item.getQty() + delta;
@@ -315,8 +291,7 @@ public class KatalogMenuController {
         SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/PilihMeja.fxml");
     }
 
-    @FXML
-    void onNavMenu(ActionEvent event) {
+    @FXML void onNavMenu(ActionEvent event) {
     }
 
     @FXML

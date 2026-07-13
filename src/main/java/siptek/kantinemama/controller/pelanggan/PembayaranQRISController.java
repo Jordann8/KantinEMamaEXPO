@@ -43,8 +43,7 @@ public class PembayaranQRISController {
         }
 
         try {
-            String qrData = String.format("KANTINEMAMA|%s|%.0f", appState.getCurrentOrderId(),
-                    appState.getCurrentTotal());
+            String qrData = String.format("KANTINEMAMA|%s|%.0f", appState.getCurrentOrderId(), appState.getCurrentTotal());
             Image qrImage = QRCodeGenerator.generate(qrData, 150);
             imgQrCode.setImage(qrImage);
         } catch (Exception e) {
@@ -54,8 +53,7 @@ public class PembayaranQRISController {
         try {
             VBox qrContainer = (VBox) imgQrCode.getParent();
             Label amountLabel = (Label) qrContainer.getChildren().get(4);
-            amountLabel.setText(
-                    "Total Amount: " + siptek.kantinemama.util.CurrencyUtil.formatRupiah(appState.getCurrentTotal()));
+            amountLabel.setText("Total Amount: " + siptek.kantinemama.util.CurrencyUtil.formatRupiah(appState.getCurrentTotal()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -67,7 +65,7 @@ public class PembayaranQRISController {
                 lblCountdown.setText("⏱  Waktu pembayaran habis");
                 showError("Pembayaran Kadaluarsa", "Waktu pembayaran Anda telah habis. Silakan pesan kembali.");
                 javafx.stage.Stage stage = (javafx.stage.Stage) btnBatal.getScene().getWindow();
-                SceneNavigator.loadScene(stage, "/siptek/kantinemama/view/pelanggan/KatalogMenu.fxml");
+                SceneNavigator.loadScene(stage, "/siptek/kantinemama/view/pelanggan/HalamanKatalogMenu.fxml");
             } else {
                 int minutes = timeRemainingSeconds / 60;
                 int seconds = timeRemainingSeconds % 60;
@@ -85,7 +83,7 @@ public class PembayaranQRISController {
         }
         appState.clearCart();
         appState.setCurrentOrderId(null);
-        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/KatalogMenu.fxml");
+        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/HalamanKatalogMenu.fxml");
     }
 
     @FXML
@@ -94,8 +92,8 @@ public class PembayaranQRISController {
             timeline.stop();
         }
 
-        java.util.ArrayList<siptek.kantinemama.model.CartItem> orderedItems = new java.util.ArrayList<>(
-                appState.getCurrentCart());
+        java.util.ArrayList<siptek.kantinemama.model.CartItem> orderedItems =
+                new java.util.ArrayList<>(appState.getCurrentCart());
         siptek.kantinemama.model.Pesanan pesanan = new siptek.kantinemama.model.Pesanan(
                 appState.getCurrentOrderId(),
                 orderedItems,
@@ -103,8 +101,9 @@ public class PembayaranQRISController {
                 "QRIS",
                 appState.getSelectedMeja(),
                 "Pesanan Baru",
-                java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
-        appState.getOrders().add(0, pesanan);
+                java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))
+        );
+        appState.getOrders().add(0, pesanan); 
 
         SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/PembayaranBerhasil.fxml");
     }

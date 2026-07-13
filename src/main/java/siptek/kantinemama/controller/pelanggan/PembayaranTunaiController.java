@@ -43,11 +43,10 @@ public class PembayaranTunaiController {
 
     private void updateReceiptUI() {
         HBox parentHBox = (HBox) lblTotal.getParent().getParent().getParent();
-
+        
         VBox leftBox = (VBox) parentHBox.getChildren().get(0);
         Label descLabel = (Label) leftBox.getChildren().get(1);
-        descLabel.setText("Silakan tunjukkan struk ini atau sebutkan Order ID #" + appState.getCurrentOrderId()
-                + " kepada Kasir untuk melakukan pembayaran tunai.");
+        descLabel.setText("Silakan tunjukkan struk ini atau sebutkan Order ID #" + appState.getCurrentOrderId() + " kepada Kasir untuk melakukan pembayaran tunai.");
 
         VBox receiptBox = (VBox) parentHBox.getChildren().get(1);
         Label transIdLabel = (Label) receiptBox.getChildren().get(1);
@@ -117,8 +116,9 @@ public class PembayaranTunaiController {
                 "Tunai",
                 appState.getSelectedMeja(),
                 "Pesanan Baru",
-                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
-        appState.getOrders().add(0, pesanan);
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))
+        );
+        appState.getOrders().add(0, pesanan); 
 
         appState.clearCart();
         appState.setCurrentOrderId(null);

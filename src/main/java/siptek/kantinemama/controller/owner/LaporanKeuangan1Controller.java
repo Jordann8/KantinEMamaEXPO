@@ -114,7 +114,7 @@ public class LaporanKeuangan1Controller {
         tanggalLbl.setPrefWidth(180);
         tanggalLbl.setStyle("-fx-text-fill: #374151; -fx-font-size: 13;");
 
-        Label metodeLbl = new Label(("QRIS".equalsIgnoreCase(r.metodeBayar) ? "🔲  " : "💵  ") + r.metodeBayar);
+        Label metodeLbl = new Label(("QRIS".equalsIgnoreCase(r.metodeBayar) ? "" : "") + r.metodeBayar);
         metodeLbl.setPrefWidth(170);
         metodeLbl.setStyle("-fx-text-fill: #111827; -fx-font-size: 13;");
 

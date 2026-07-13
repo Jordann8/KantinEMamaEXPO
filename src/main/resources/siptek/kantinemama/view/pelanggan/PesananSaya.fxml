@@ -138,7 +138,6 @@
                                     <children>
                                         <Label style="-fx-text-fill: #111827; -fx-font-size: 15; -fx-font-weight: bold;" text="Riwayat Pesanan Lampau" />
                                         <Region HBox.hgrow="ALWAYS" />
-                                        <Button fx:id="btnFilter" onAction="#onFilter" prefHeight="34" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-font-size: 12; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand;" text="Filter" />
                                         <Button fx:id="btnExportPdf" onAction="#onExportPdf" prefHeight="34" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-font-size: 12; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand;" text="Export PDF" />
                                     </children>
                                 </HBox>

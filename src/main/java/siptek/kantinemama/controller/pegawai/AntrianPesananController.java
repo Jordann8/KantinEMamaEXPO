@@ -17,26 +17,17 @@ import siptek.kantinemama.util.SceneNavigator;
 
 public class AntrianPesananController {
 
-    @FXML
-    private Button btnMulaiMemasak1;
-    @FXML
-    private Button btnMulaiMemasak2;
-    @FXML
-    private Button btnSelesaiAntar;
+    @FXML private Button btnMulaiMemasak1;
+    @FXML private Button btnMulaiMemasak2;
+    @FXML private Button btnSelesaiAntar;
 
-    @FXML
-    private Button navAntrian;
-    @FXML
-    private Button navKelolaMenu;
-    @FXML
-    private Button navKeluar;
+    @FXML private Button navAntrian;
+    @FXML private Button navKelolaMenu;
+    @FXML private Button navKeluar;
 
-    @FXML
-    private VBox colPesananBaru;
-    @FXML
-    private VBox colSedangDimasak;
-    @FXML
-    private VBox colSiapDiambil;
+    @FXML private VBox colPesananBaru;
+    @FXML private VBox colSedangDimasak;
+    @FXML private VBox colSiapDiambil;
 
     private AppState appState = AppState.getInstance();
 
@@ -57,6 +48,7 @@ public class AntrianPesananController {
             List<Pesanan> cookingOrdersList = new ArrayList<>();
             List<Pesanan> readyOrdersList = new ArrayList<>();
 
+        
             for (int i = allOrders.size() - 1; i >= 0; i--) {
                 Pesanan p = allOrders.get(i);
                 if ("Pesanan Baru".equalsIgnoreCase(p.getStatusDapur())) {
@@ -103,8 +95,7 @@ public class AntrianPesananController {
 
     private void updateNewCard(VBox colNew, int cardIndex, Pesanan order) {
         try {
-            if (cardIndex < 1 || cardIndex >= colNew.getChildren().size())
-                return;
+            if (cardIndex < 1 || cardIndex >= colNew.getChildren().size()) return;
             VBox card = (VBox) colNew.getChildren().get(cardIndex);
 
             if (order == null) {
@@ -133,14 +124,10 @@ public class AntrianPesananController {
 
             orderIdLabel.setText("#" + order.getOrderId());
             paymentStatusLabel.setText(order.getStatusPembayaran().toUpperCase());
-            paymentStatusLabel.setStyle("-fx-background-color: "
-                    + ("Lunas".equalsIgnoreCase(order.getStatusPembayaran()) ? "#DCFCE7; -fx-text-fill: #16A34A;"
-                            : "#FEE2E2; -fx-text-fill: #EF4444;")
-                    + " -fx-font-size: 9; -fx-font-weight: bold; -fx-padding: 2 6 2 6; -fx-background-radius: 8;");
+            paymentStatusLabel.setStyle("-fx-background-color: " + ("Lunas".equalsIgnoreCase(order.getStatusPembayaran()) ? "#DCFCE7; -fx-text-fill: #16A34A;" : "#FEE2E2; -fx-text-fill: #EF4444;") + " -fx-font-size: 9; -fx-font-weight: bold; -fx-padding: 2 6 2 6; -fx-background-radius: 8;");
 
             String mejaStr = order.getMeja().replace("mejaMO", "MEJA ");
-            if ("-".equals(mejaStr))
-                mejaStr = "KASIR";
+            if ("-".equals(mejaStr)) mejaStr = "KASIR";
             tableLabel.setText("🏠 " + mejaStr);
 
             timeLabel.setText(order.getWaktu() + " • Dine-In");
@@ -152,8 +139,7 @@ public class AntrianPesananController {
 
     private void updateCookingCard(VBox colCooking, Pesanan order) {
         try {
-            if (colCooking.getChildren().size() < 2)
-                return;
+            if (colCooking.getChildren().size() < 2) return;
             VBox card = (VBox) colCooking.getChildren().get(1);
 
             if (order == null) {
@@ -181,8 +167,7 @@ public class AntrianPesananController {
 
             orderIdLabel.setText("#" + order.getOrderId());
             String mejaStr = order.getMeja().replace("mejaMO", "MEJA ");
-            if ("-".equals(mejaStr))
-                mejaStr = "KASIR";
+            if ("-".equals(mejaStr)) mejaStr = "KASIR";
             tableLabel.setText("🏠 " + mejaStr);
             timeLabel.setText(order.getWaktu() + " • Dine-In");
 
@@ -220,7 +205,6 @@ public class AntrianPesananController {
                 target.setStatusPembayaran("Lunas");
             }
 
-            // Kosongkan meja secara instan
             String kodeMeja = target.getMeja();
             if (kodeMeja != null) {
                 for (siptek.kantinemama.model.Meja meja : appState.getTables()) {
@@ -231,25 +215,14 @@ public class AntrianPesananController {
                     }
                 }
             }
-
             refreshQueueUI();
-            showInfo("Pesanan Selesai", "Pesanan #" + target.getOrderId() + " telah disajikan.\n" + target.getMeja().replace("mejaMO", "MEJA ") + " kini telah kosong dan tersedia kembali.");
+            showInfo("Pesanan Selesai", "Pesanan #" + target.getOrderId() + " telah disajikan.\n" + target.getMeja().replace("mejaMO", "MEJA ") + " kini telah kosong dan tersedia kembali.");        
         }
     }
 
-    @FXML
-    void onNavKelolaMenu(ActionEvent event) {
-        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pegawai/KelolaMenu.fxml");
-    }
-
-    @FXML
-    void onNavAntrian(ActionEvent event) {
-        /* sudah di halaman ini */ }
-
-    @FXML
-    void onNavKeluar(ActionEvent event) {
-        SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/HalamanAwalUtama.fxml");
-    }
+    @FXML void onNavKelolaMenu(ActionEvent event) { SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pegawai/KelolaMenu.fxml"); }
+    @FXML void onNavAntrian(ActionEvent event) { /* sudah di halaman ini */ }
+    @FXML void onNavKeluar(ActionEvent event) { SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/HalamanAwalUtama.fxml"); }
 
     private void showInfo(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

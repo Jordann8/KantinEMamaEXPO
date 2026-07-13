@@ -70,33 +70,27 @@ public class AppState {
     }
 
     private void initializeDummyData() {
-        menuItems.add(new MenuItem("M001", "Nasi Goreng Spesial", "Makanan", 15000, 20, true,
-                "images/menu/nasi-goreng-spesial.jpg"));
-        menuItems.add(new MenuItem("M002", "Ayam Geprek Sambal Matah", "Makanan", 18000, 15, true,
-                "images/menu/ayam-geprek-sambal-matah.jpg"));
-        menuItems.add(
-                new MenuItem("M003", "Mie Goreng Jawa", "Makanan", 12000, 25, true, "images/menu/mie-goreng-jawa.jpg"));
-        menuItems.add(new MenuItem("M004", "Sate Ayam Madura (10 Tusuk)", "Makanan", 22000, 10, true,
-                "images/menu/sate-ayam-madura.jpg"));
+        menuItems.add(new MenuItem("M001", "Nasi Goreng Spesial", "Makanan", 15000, 20, true, "images/menu/nasi-goreng-spesial.jpg"));
+        menuItems.add(new MenuItem("M002", "Ayam Geprek Sambal Matah", "Makanan", 18000, 15, true, "images/menu/ayam-geprek-sambal-matah.jpg"));
+        menuItems.add(new MenuItem("M003", "Mie Goreng Jawa", "Makanan", 12000, 25, true, "images/menu/mie-goreng-jawa.jpg"));
+        menuItems.add(new MenuItem("M004", "Sate Ayam Madura (10 Tusuk)", "Makanan", 22000, 10, true, "images/menu/sate-ayam-madura.jpg"));
         menuItems.add(new MenuItem("M005", "Es Teh Manis", "Minuman", 5000, 50, true, "images/menu/es-teh-manis.jpg"));
-        menuItems.add(new MenuItem("M006", "Es Kopi Susu Aren", "Minuman", 10000, 30, true,
-                "images/menu/es-kopi-susu-aren.jpg"));
+        menuItems.add(new MenuItem("M006", "Es Kopi Susu Aren", "Minuman", 10000, 30, true, "images/menu/es-kopi-susu-aren.jpg"));
 
-        menuItems.add(new MenuItem("M007", "Ayam Geprek Sambal Korek", "Makanan", 18000, 15, true,
-                "images/menu/ayam-geprek-sambal-korek.jpg"));
-        menuItems.add(new MenuItem("M008", "Nasi Goreng Gila Spesial", "Makanan", 20000, 12, true,
-                "images/menu/nasi-goreng-gila-spesial.jpg"));
-        menuItems.add(new MenuItem("M009", "Es Teh Manis Selasih Jumbo", "Minuman", 8000, 40, true,
-                "images/menu/es-teh-manis-selasih-jumbo.jpg"));
-        menuItems.add(new MenuItem("M010", "Sate Maranggi Purwakarta", "Makanan", 25000, 10, true,
-                "images/menu/sate-maranggi-purwakarta.jpg"));
-        menuItems.add(new MenuItem("M011", "Kopi Susu Gula Aren", "Minuman", 10000, 30, true,
-                "images/menu/kopi-susu-gula-aren.jpg"));
-        menuItems.add(new MenuItem("M012", "Pisang Goreng Keju Cokelat", "Camilan", 10000, 20, true,
-                "images/menu/pisang-goreng-keju-cokelat.jpg"));
+        menuItems.add(new MenuItem("M007", "Ayam Geprek Sambal Korek", "Makanan", 18000, 15, true, "images/menu/ayam-geprek-sambal-korek.jpg"));
+        menuItems.add(new MenuItem("M008", "Nasi Goreng Gila Spesial", "Makanan", 20000, 12, true, "images/menu/nasi-goreng-gila-spesial.jpg"));
+        menuItems.add(new MenuItem("M009", "Es Teh Manis Selasih Jumbo", "Minuman", 8000, 40, true, "images/menu/es-teh-manis-selasih-jumbo.jpg"));
+        menuItems.add(new MenuItem("M010", "Sate Maranggi Purwakarta", "Makanan", 25000, 10, true, "images/menu/sate-maranggi-purwakarta.jpg"));
+        menuItems.add(new MenuItem("M011", "Kopi Susu Gula Aren", "Minuman", 10000, 30, true, "images/menu/kopi-susu-gula-aren.jpg"));
+        menuItems.add(new MenuItem("M012", "Pisang Goreng Keju Cokelat", "Camilan", 10000, 20, true, "images/menu/pisang-goreng-keju-cokelat.jpg"));
 
+        
         for (int i = 1; i <= 17; i++) {
-            tables.add(new Meja("mejaMO" + i, "KOSONG"));
+            if (i == 3 || i == 7 || i == 12) {
+                tables.add(new Meja("mejaMO" + i, "TERISI"));
+            } else {
+                tables.add(new Meja("mejaMO" + i, "KOSONG"));
+            }
         }
 
         stokItems.add(new StokItem("ST-001", "Ayam Goreng", "Bahan Makanan", 20, 5));
@@ -106,17 +100,15 @@ public class AppState {
         stokItems.add(new StokItem("ST-005", "Tahu Gehu", "Camilan", 25, 6));
 
         ArrayList<CartItem> orderItems1 = new ArrayList<>();
-        orderItems1.add(new CartItem(menuItems.get(0), 2));
-        orderItems1.add(new CartItem(menuItems.get(4), 2));
-        Pesanan dummyOrder1 = new Pesanan("ORD-88219", orderItems1, "Lunas", "QRIS", "mejaMO5", "Selesai",
-                "07/07/2026 10:15");
+        orderItems1.add(new CartItem(menuItems.get(0), 2)); 
+        orderItems1.add(new CartItem(menuItems.get(4), 2)); 
+        Pesanan dummyOrder1 = new Pesanan("ORD-88219", orderItems1, "Lunas", "QRIS", "mejaMO5", "Selesai", "07/07/2026 10:15");
         orders.add(dummyOrder1);
 
         ArrayList<CartItem> orderItems2 = new ArrayList<>();
         orderItems2.add(new CartItem(menuItems.get(1), 1));
-        orderItems2.add(new CartItem(menuItems.get(5), 1));
-        Pesanan dummyOrder2 = new Pesanan("ORD-88220", orderItems2, "Lunas", "Tunai", "mejaMO2", "Sedang Dimasak",
-                "07/07/2026 11:30");
+        orderItems2.add(new CartItem(menuItems.get(5), 1)); 
+        Pesanan dummyOrder2 = new Pesanan("ORD-88220", orderItems2, "Lunas", "Tunai", "mejaMO2", "Sedang Dimasak", "07/07/2026 11:30");
         orders.add(dummyOrder2);
 
         transaksiHarians.add(new TransaksiHarian("05/07/2026", "QRIS", 12, 340000, 170000, "Selesai"));
