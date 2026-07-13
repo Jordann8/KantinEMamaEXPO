@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane prefWidth="1280" prefHeight="1000" style="-fx-background-color: #F9FAFB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="siptek.kantinemama.controller.pelanggan.KatalogMenuController">
+    <children>
+        <VBox AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="64" minHeight="64" maxHeight="64" spacing="28" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-width: 0 0 1 0; -fx-padding: 0 24 0 24;">
+                    <children>
+                        <Label text="Kantin E Mama" style="-fx-text-fill: #0F2044; -fx-font-size: 18; -fx-font-weight: bold;" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="navMenu" text="Menu" onAction="#onNavMenu" style="-fx-background-color: transparent; -fx-text-fill: #1565C0; -fx-font-size: 14; -fx-font-weight: bold; -fx-border-color: transparent; -fx-cursor: hand;" />
+                        <Button fx:id="navOrders" text="Pesanan Saya" onAction="#onNavOrders" style="-fx-background-color: transparent; -fx-text-fill: #374151; -fx-font-size: 14; -fx-border-color: transparent; -fx-cursor: hand;" />
+                        <Button fx:id="navHelp" text="Bantuan" onAction="#onNavHelp" style="-fx-background-color: transparent; -fx-text-fill: #374151; -fx-font-size: 14; -fx-border-color: transparent; -fx-cursor: hand;" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="navCart" text="🛒" onAction="#onNavCart" style="-fx-background-color: transparent; -fx-text-fill: #111827; -fx-font-size: 16; -fx-border-color: transparent; -fx-cursor: hand;" />
+                        <Label text="4 item" style="-fx-background-color: #1565C0; -fx-text-fill: #FFFFFF; -fx-font-size: 10; -fx-font-weight: bold; -fx-padding: 3 8 3 8; -fx-background-radius: 10;" />
+                        <Button fx:id="navNotif" text="🔔" onAction="#onNavNotif" style="-fx-background-color: transparent; -fx-text-fill: #111827; -fx-font-size: 16; -fx-border-color: transparent; -fx-cursor: hand;" />
+                    </children>
+                </HBox>
+                <HBox VBox.vgrow="ALWAYS">
+                    <children>
+                        <ScrollPane fitToWidth="true" HBox.hgrow="ALWAYS" style="-fx-background-color: #F9FAFB; -fx-border-color: transparent;">
+                            <content>
+                                <VBox spacing="18" style="-fx-padding: 24 24 24 24;">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT">
+                                            <children>
+                                                <VBox spacing="4">
+                                                    <children>
+                                                        <Label text="Katalog Menu" style="-fx-text-fill: #111827; -fx-font-size: 24; -fx-font-weight: bold;" />
+                                                        <Label text="Pilih hidangan untuk ditambahkan ke pesanan Anda." style="-fx-text-fill: #6B7280; -fx-font-size: 13;" />
+                                                    </children>
+                                                </VBox>
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <TextField promptText="🔍  Cari menu..." prefWidth="270" prefHeight="42" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 13; -fx-prompt-text-fill: #9CA3AF;" />
+                                            </children>
+                                        </HBox>
+                                        <FlowPane fx:id="menuGrid" hgap="20" vgap="20" prefWrapLength="720" style="-fx-padding: 10 0 10 0;" />
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                        <VBox prefWidth="320" minWidth="320" maxWidth="320" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-width: 0 0 0 1;">
+                            <children>
+                                <HBox alignment="CENTER_LEFT" spacing="8" style="-fx-padding: 18 20 14 20;">
+                                    <children>
+                                        <Label text="🧺  Keranjang Belanja" style="-fx-text-fill: #0F2044; -fx-font-size: 15; -fx-font-weight: bold;" />
+                                    </children>
+                                </HBox>
+                                <Region prefHeight="1" minHeight="1" maxHeight="1" style="-fx-background-color: #E5E7EB;" />
+                                <VBox spacing="14" style="-fx-padding: 14 20 14 20;">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <ImageView fx:id="imgCartItem1" fitWidth="46" fitHeight="46" preserveRatio="false" />
+                                                <VBox spacing="2">
+                                                    <children>
+                                                        <Label text="Sate Ayam Madura" style="-fx-text-fill: #111827; -fx-font-size: 13; -fx-font-weight: bold;" />
+                                                        <Label text="Rp 60.000" style="-fx-text-fill: #374151; -fx-font-size: 12;" />
+                                                        <Label text="(2x Rp 30.000)" style="-fx-text-fill: #9CA3AF; -fx-font-size: 11;" />
+                                                    </children>
+                                                </VBox>
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <HBox alignment="CENTER" spacing="6" style="-fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-padding: 3 6 3 6;">
+                                                    <children>
+                                                        <Button fx:id="btnMinus1" text="-" onAction="#onMinus1" prefWidth="22" prefHeight="22" style="-fx-background-color: transparent; -fx-text-fill: #111827; -fx-font-size: 13; -fx-border-color: transparent; -fx-cursor: hand;" />
+                                                        <Label text="2" style="-fx-text-fill: #111827; -fx-font-size: 13;" />
+                                                        <Button fx:id="btnPlus1" text="+" onAction="#onPlus1" prefWidth="22" prefHeight="22" style="-fx-background-color: transparent; -fx-text-fill: #111827; -fx-font-size: 13; -fx-border-color: transparent; -fx-cursor: hand;" />
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <ImageView fx:id="imgCartItem2" fitWidth="46" fitHeight="46" preserveRatio="false" />
+                                                <VBox spacing="2">
+                                                    <children>
+                                                        <Label text="Es Teh Manis" style="-fx-text-fill: #111827; -fx-font-size: 13; -fx-font-weight: bold;" />
+                                                        <Label text="Rp 8.000" style="-fx-text-fill: #374151; -fx-font-size: 12;" />
+                                                        <Label text="(2x Rp 4.000)" style="-fx-text-fill: #9CA3AF; -fx-font-size: 11;" />
+                                                    </children>
+                                                </VBox>
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <HBox alignment="CENTER" spacing="6" style="-fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-border-radius: 6; -fx-padding: 3 6 3 6;">
+                                                    <children>
+                                                        <Button fx:id="btnMinus2" text="-" onAction="#onMinus2" prefWidth="22" prefHeight="22" style="-fx-background-color: transparent; -fx-text-fill: #111827; -fx-font-size: 13; -fx-border-color: transparent; -fx-cursor: hand;" />
+                                                        <Label text="2" style="-fx-text-fill: #111827; -fx-font-size: 13;" />
+                                                        <Button fx:id="btnPlus2" text="+" onAction="#onPlus2" prefWidth="22" prefHeight="22" style="-fx-background-color: transparent; -fx-text-fill: #111827; -fx-font-size: 13; -fx-border-color: transparent; -fx-cursor: hand;" />
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                                <Region VBox.vgrow="ALWAYS" />
+                                <Region prefHeight="1" minHeight="1" maxHeight="1" style="-fx-background-color: #E5E7EB;" />
+                                <VBox spacing="8" style="-fx-padding: 14 20 20 20; -fx-background-color: #F9FAFB;">
+                                    <children>
+                                        <HBox>
+                                            <children>
+                                                <Label text="Subtotal" style="-fx-text-fill: #374151; -fx-font-size: 13;" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label text="Rp68.000" style="-fx-text-fill: #374151; -fx-font-size: 13;" />
+                                            </children>
+                                        </HBox>
+                                        <HBox>
+                                            <children>
+                                                <Label text="Pajak Resto (10%)" style="-fx-text-fill: #374151; -fx-font-size: 13;" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label text="Rp6.800" style="-fx-text-fill: #374151; -fx-font-size: 13;" />
+                                            </children>
+                                        </HBox>
+                                        <Region prefHeight="1" minHeight="1" maxHeight="1" style="-fx-background-color: #D1D5DB;" />
+                                        <HBox alignment="CENTER_LEFT">
+                                            <children>
+                                                <Label text="Total" style="-fx-text-fill: #111827; -fx-font-size: 16; -fx-font-weight: bold;" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="lblTotal" text="Rp 74.800" style="-fx-text-fill: #111827; -fx-font-size: 20; -fx-font-weight: bold;" />
+                                            </children>
+                                        </HBox>
+                                        <Button fx:id="btnKonfirmasi" text="KONFIRMASI PESANAN  →" onAction="#onKonfirmasi" maxWidth="1.7976931348623157E308" prefHeight="46" style="-fx-background-color: #0F2044; -fx-text-fill: #FFFFFF; -fx-font-size: 13; -fx-font-weight: bold; -fx-background-radius: 8; -fx-border-color: transparent; -fx-cursor: hand;" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

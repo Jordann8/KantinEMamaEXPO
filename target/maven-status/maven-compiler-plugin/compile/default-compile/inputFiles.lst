@@ -1,34 +1,31 @@
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/Launcher.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/MainApp.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/owner/LaporanKeuangan1Controller.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/owner/ManajemenKatalogMenuController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/owner/PengaturanSistemController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/owner/PortalOwnerController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pegawai/AntrianPesananController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pegawai/DashboardUtamaPegawaiController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pegawai/EditMenuController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pegawai/HapusMenuController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pegawai/KelolaMenuController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pegawai/LaporanKeuanganController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pegawai/StokBarangController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pegawai/TambahMenuBaruController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pelanggan/HalamanAwalUtamaController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pelanggan/KatalogMenuController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pelanggan/KonfirmasiPesananController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pelanggan/PembayaranBerhasilController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pelanggan/PembayaranQRISController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pelanggan/PembayaranTunaiController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pelanggan/PesananSayaController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/controller/pelanggan/PilihMejaController.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/model/AppState.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/model/AppStateSnapshot.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/model/CartItem.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/model/Meja.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/model/MenuItem.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/model/Pesanan.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/model/StokItem.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/model/TransaksiHarian.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/util/CurrencyUtil.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/util/PersistenceManager.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/util/QRCodeGenerator.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/main/java/siptek/kantinemama/util/SceneNavigator.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\owner\LaporanKeuangan1Controller.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pegawai\AntrianPesananController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pegawai\DashboardUtamaPegawaiController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pegawai\EditMenuController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pegawai\HapusMenuController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pegawai\KelolaMenuController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pegawai\LaporanKeuanganController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pegawai\StokBarangController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pegawai\TambahMenuBaruController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pelanggan\HalamanAwalUtamaController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pelanggan\KatalogMenuController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pelanggan\KonfirmasiPesananController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pelanggan\PembayaranBerhasilController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pelanggan\PembayaranQRISController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pelanggan\PembayaranTunaiController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pelanggan\PesananSayaController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\controller\pelanggan\PilihMejaController.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\Launcher.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\MainApp.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\model\AppState.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\model\AppStateSnapshot.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\model\CartItem.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\model\Meja.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\model\MenuItem.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\model\Pesanan.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\model\StokItem.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\model\TransaksiHarian.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\util\CurrencyUtil.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\util\PersistenceManager.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\util\QRCodeGenerator.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\main\java\siptek\kantinemama\util\SceneNavigator.java

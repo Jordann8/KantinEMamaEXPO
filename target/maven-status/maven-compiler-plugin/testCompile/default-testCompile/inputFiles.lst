@@ -1,14 +1,14 @@
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/test/java/siptek/kantinemama/TestFXML.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/test/java/siptek/kantinemama/api/ModelApiTest.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/test/java/siptek/kantinemama/e2e/OrderFlowE2ETest.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/test/java/siptek/kantinemama/e2e/StokManagementE2ETest.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/test/java/siptek/kantinemama/integration/AppStateIntegrationTest.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/test/java/siptek/kantinemama/integration/FxmlLoadingIntegrationTest.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/test/java/siptek/kantinemama/model/CartItemTest.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/test/java/siptek/kantinemama/model/MejaTest.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/test/java/siptek/kantinemama/model/MenuItemTest.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/test/java/siptek/kantinemama/model/PesananTest.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/test/java/siptek/kantinemama/model/StokItemTest.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/test/java/siptek/kantinemama/model/TransaksiHarianTest.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/test/java/siptek/kantinemama/performance/PerformanceTest.java
-/Users/user/Desktop/UII/SEM 2/EXPO/Siptek-Kantinemama/src/test/java/siptek/kantinemama/security/SecurityTest.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\test\java\siptek\kantinemama\api\ModelApiTest.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\test\java\siptek\kantinemama\e2e\OrderFlowE2ETest.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\test\java\siptek\kantinemama\e2e\StokManagementE2ETest.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\test\java\siptek\kantinemama\integration\AppStateIntegrationTest.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\test\java\siptek\kantinemama\integration\FxmlLoadingIntegrationTest.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\test\java\siptek\kantinemama\model\CartItemTest.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\test\java\siptek\kantinemama\model\MejaTest.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\test\java\siptek\kantinemama\model\MenuItemTest.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\test\java\siptek\kantinemama\model\PesananTest.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\test\java\siptek\kantinemama\model\StokItemTest.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\test\java\siptek\kantinemama\model\TransaksiHarianTest.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\test\java\siptek\kantinemama\performance\PerformanceTest.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\test\java\siptek\kantinemama\security\SecurityTest.java
+C:\Users\LENOVO\Documents\KantinEMamaEXPO(Github-MAC)\src\test\java\siptek\kantinemama\TestFXML.java

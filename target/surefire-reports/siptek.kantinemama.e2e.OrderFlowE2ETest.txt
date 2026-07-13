@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: siptek.kantinemama.e2e.OrderFlowE2ETest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in siptek.kantinemama.e2e.OrderFlowE2ETest
