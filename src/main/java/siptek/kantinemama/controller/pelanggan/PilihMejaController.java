@@ -16,28 +16,49 @@ import siptek.kantinemama.util.SceneNavigator;
 
 public class PilihMejaController {
 
-    @FXML private Button btnBatal;
-    @FXML private Button btnKonfirmasi;
-    @FXML private Button btnTutup;
-    @FXML private Label lblMejaTerpilih;
+    @FXML
+    private Button btnBatal;
+    @FXML
+    private Button btnKonfirmasi;
+    @FXML
+    private Button btnTutup;
+    @FXML
+    private Label lblMejaTerpilih;
 
-    @FXML private VBox mejaMO1;
-    @FXML private VBox mejaMO2;
-    @FXML private VBox mejaMO3;
-    @FXML private VBox mejaMO4;
-    @FXML private VBox mejaMO5;
-    @FXML private VBox mejaMO6;
-    @FXML private VBox mejaMO7;
-    @FXML private VBox mejaMO8;
-    @FXML private VBox mejaMO9;
-    @FXML private VBox mejaMO10;
-    @FXML private VBox mejaMO11;
-    @FXML private VBox mejaMO12;
-    @FXML private VBox mejaMO13;
-    @FXML private VBox mejaMO14;
-    @FXML private VBox mejaMO15;
-    @FXML private VBox mejaMO16;
-    @FXML private VBox mejaMO17;
+    @FXML
+    private VBox mejaMO1;
+    @FXML
+    private VBox mejaMO2;
+    @FXML
+    private VBox mejaMO3;
+    @FXML
+    private VBox mejaMO4;
+    @FXML
+    private VBox mejaMO5;
+    @FXML
+    private VBox mejaMO6;
+    @FXML
+    private VBox mejaMO7;
+    @FXML
+    private VBox mejaMO8;
+    @FXML
+    private VBox mejaMO9;
+    @FXML
+    private VBox mejaMO10;
+    @FXML
+    private VBox mejaMO11;
+    @FXML
+    private VBox mejaMO12;
+    @FXML
+    private VBox mejaMO13;
+    @FXML
+    private VBox mejaMO14;
+    @FXML
+    private VBox mejaMO15;
+    @FXML
+    private VBox mejaMO16;
+    @FXML
+    private VBox mejaMO17;
 
     private AppState appState = AppState.getInstance();
     private Map<String, VBox> mejaNodes = new HashMap<>();
@@ -71,18 +92,22 @@ public class PilihMejaController {
     private void refreshMejaStyles() {
         for (Meja meja : appState.getTables()) {
             VBox node = mejaNodes.get(meja.getKode());
-            if (node == null || node.getChildren().isEmpty()) continue;
+            if (node == null || node.getChildren().isEmpty())
+                continue;
 
             Label textLabel = (Label) node.getChildren().get(0);
 
             if ("KOSONG".equals(meja.getStatus())) {
-                node.setStyle("-fx-background-color: #E0F9F9; -fx-border-color: #26C6DA; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;");
+                node.setStyle(
+                        "-fx-background-color: #E0F9F9; -fx-border-color: #26C6DA; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;");
                 textLabel.setStyle("-fx-text-fill: #0F2044; -fx-font-size: 14; -fx-font-weight: bold;");
             } else if ("TERISI".equals(meja.getStatus())) {
-                node.setStyle("-fx-background-color: #FFEBEE; -fx-border-color: #EF4444; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;");
+                node.setStyle(
+                        "-fx-background-color: #FFEBEE; -fx-border-color: #EF4444; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;");
                 textLabel.setStyle("-fx-text-fill: #EF4444; -fx-font-size: 14; -fx-font-weight: bold;");
             } else if ("TERPILIH".equals(meja.getStatus())) {
-                node.setStyle("-fx-background-color: #BBDEFB; -fx-border-color: #1565C0; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;");
+                node.setStyle(
+                        "-fx-background-color: #BBDEFB; -fx-border-color: #1565C0; -fx-border-width: 1.5; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;");
                 textLabel.setStyle("-fx-text-fill: #1565C0; -fx-font-size: 14; -fx-font-weight: bold;");
             }
         }
@@ -101,7 +126,8 @@ public class PilihMejaController {
             }
         }
 
-        if (clickedMeja == null) return;
+        if (clickedMeja == null)
+            return;
 
         if ("TERISI".equals(clickedMeja.getStatus())) {
             showWarning("Meja Terisi", "Maaf, meja ini sedang terisi oleh pelanggan lain.");
@@ -116,7 +142,7 @@ public class PilihMejaController {
 
         clickedMeja.setStatus("TERPILIH");
         appState.setSelectedMeja(kodeMeja);
-        
+
         Label textLabel = (Label) clickedNode.getChildren().get(0);
         lblMejaTerpilih.setText(textLabel.getText());
 

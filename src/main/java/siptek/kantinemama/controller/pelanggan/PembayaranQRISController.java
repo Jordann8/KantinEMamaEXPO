@@ -43,7 +43,8 @@ public class PembayaranQRISController {
         }
 
         try {
-            String qrData = String.format("KANTINEMAMA|%s|%.0f", appState.getCurrentOrderId(), appState.getCurrentTotal());
+            String qrData = String.format("KANTINEMAMA|%s|%.0f", appState.getCurrentOrderId(),
+                    appState.getCurrentTotal());
             Image qrImage = QRCodeGenerator.generate(qrData, 150);
             imgQrCode.setImage(qrImage);
         } catch (Exception e) {
@@ -53,7 +54,8 @@ public class PembayaranQRISController {
         try {
             VBox qrContainer = (VBox) imgQrCode.getParent();
             Label amountLabel = (Label) qrContainer.getChildren().get(4);
-            amountLabel.setText("Total Amount: " + siptek.kantinemama.util.CurrencyUtil.formatRupiah(appState.getCurrentTotal()));
+            amountLabel.setText(
+                    "Total Amount: " + siptek.kantinemama.util.CurrencyUtil.formatRupiah(appState.getCurrentTotal()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -92,8 +94,8 @@ public class PembayaranQRISController {
             timeline.stop();
         }
 
-        java.util.ArrayList<siptek.kantinemama.model.CartItem> orderedItems =
-                new java.util.ArrayList<>(appState.getCurrentCart());
+        java.util.ArrayList<siptek.kantinemama.model.CartItem> orderedItems = new java.util.ArrayList<>(
+                appState.getCurrentCart());
         siptek.kantinemama.model.Pesanan pesanan = new siptek.kantinemama.model.Pesanan(
                 appState.getCurrentOrderId(),
                 orderedItems,
@@ -101,9 +103,8 @@ public class PembayaranQRISController {
                 "QRIS",
                 appState.getSelectedMeja(),
                 "Pesanan Baru",
-                java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))
-        );
-        appState.getOrders().add(0, pesanan); 
+                java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
+        appState.getOrders().add(0, pesanan);
 
         SceneNavigator.loadScene(event, "/siptek/kantinemama/view/pelanggan/PembayaranBerhasil.fxml");
     }

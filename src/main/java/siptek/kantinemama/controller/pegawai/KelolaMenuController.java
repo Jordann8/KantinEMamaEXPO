@@ -101,12 +101,12 @@ public class KelolaMenuController {
             HBox.setHgrow(spacer, javafx.scene.layout.Priority.ALWAYS);
             actionRow.getChildren().add(spacer);
 
-            Button btnEdit = new Button("✏");
+            Button btnEdit = new Button("Edit");
             btnEdit.setStyle("-fx-background-color: transparent; -fx-text-fill: #4B5563; -fx-font-size: 14; -fx-cursor: hand;");
             btnEdit.setOnAction(e -> showEditMenuPopup(item));
             actionRow.getChildren().add(btnEdit);
 
-            Button btnDelete = new Button("🗑");
+            Button btnDelete = new Button("Hapus");
             btnDelete.setStyle("-fx-background-color: transparent; -fx-text-fill: #EF4444; -fx-font-size: 14; -fx-cursor: hand;");
             btnDelete.setOnAction(e -> showHapusMenuPopup(item));
             actionRow.getChildren().add(btnDelete);
